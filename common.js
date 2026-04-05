@@ -8,6 +8,7 @@
 // const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxWhNlrltWhCdgXIYivMvSY1vbwhQCAiN9cKaHihZNOfYM29_TVilI1lJn9WQMW4ZU/exec'; // ← old file
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyVbZe-9YCRT_JTgnJGPfraAjGQC2Oyzv38M8TDtHbE6rnx1QnfYz0gNCoFj4JgQoK-CQ/exec'; // ← replace
 
+const BASE_URL = "https://collegebuddy7.github.io/neo";
 // ── SCORING ─────────────────────────────────────────
 const PTS_FAST   = 15;
 const PTS_MEDIUM = 10;
@@ -18,20 +19,36 @@ const MEDIUM_SEC = 15;
 
 const COLLEGES = [
   "A.B.S. College, Lalganj","B.M.D. College, Dayalpur","CN College, Sahebganj",
-  "Dr. R.M.L.S. College, Muzaffarpur","Indu Devi Ranjeet Kumar Prakash",
-  "J.L. College, Hajipur","J.L.N.M. College, Ghorasahan",
-  "L.N.T. College, Muzaffarpur","L.N. College, Bhagwanpur",
-  "L.N.D. College, Motihari","L.S. College, Muzaffarpur",
-  "M.S.M. Samata College, Jandah","M.S.S.G. College, Areraj",
-  "M.D.D.M. College, Muzaffarpur","M.J.K. College, Bettiah",
-  "M.P.S. Sc. College, Muzaffarpur","M.S. College, Motihari",
-  "Nitishwar College, Muzaffarpur","Ranjeet Kumar Prakash",
-  "R.D.S. College, Muzaffarpur","R.L.S.Y. College, Bettiah",
-  "R.N. College, Hajipur","R.S.S.M. College, Sitamarhi",
-  "R.S.S. Sc. College, Sitamarhi","Rameshwar Mahavidyalaya, Muzaffarpur",
-  "S.R.A.P. College, Barachakia","S.L.K. College, Sitamarhi",
-  "S.N.S. College, Motihari","S.R.K.G. College, Sitamarhi",
-  "T. P. Verma College, Narkatiyaganj","Umesh Kumar Ranjeet Vidayalya",
+ "B.M.D. College, Dayalpur",
+  "CN College, Sahebganj",
+  "Dr. R.M.L.S. College, Muzaffarpur",
+  "Indu Devi Ranjeet Kumar Prakash",
+  "J.L. College, Hajipur",
+  "J.L.N.M. College, Ghorasahan",
+  "L.N.T. College, Muzaffarpur",
+  "L.N. College, Bhagwanpur",
+  "L.N.D. College, Motihari",
+  "L.S. College, Muzaffarpur",
+  "M.S.M. Samata College, Jandah",
+  "M.S.S.G. College, Areraj",
+  "M.D.D.M. College, Muzaffarpur",
+  "M.J.K. College, Bettiah",
+  "M.P.S. Sc. College, Muzaffarpur",
+  "M.S. College, Motihari",
+  "Nitishwar College, Muzaffarpur",
+  "Ranjeet Kumar Prakash",
+  "R.D.S. College, Muzaffarpur",
+  "R.L.S.Y. College, Bettiah",
+  "R.N. College, Hajipur",
+  "R.S.S.M. College, Sitamarhi",
+  "R.S.S. Sc. College, Sitamarhi",
+  "Rameshwar Mahavidyalaya, Muzaffarpur",
+  "S.R.A.P. College, Barachakia",
+  "S.L.K. College, Sitamarhi",
+  "S.N.S. College, Motihari",
+  "S.R.K.G. College, Sitamarhi",
+  "T. P. Verma College, Narkatiyaganj",
+  "Umesh Kumar Ranjeet Vidayalya",
   "Vaishali Institute of Business and Rural Management, Muzaffarpur","Other"
 ];
 

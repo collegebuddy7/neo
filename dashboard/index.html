@@ -1180,11 +1180,11 @@ body { font-family: 'DM Sans', sans-serif; background: #f0f4f8; color: #1e293b; 
         Profile
       </button>
     </div>
-    <div class="left-nav-bottom">
-      <div class="nav-user-chip">
-        <div class="nav-user-av" id="navAv">S</div>
+    <div class="left-nav-bottom" >
+      <div class="nav-user-chip"> 
+        <div class="nav-user-av" id="navAv" >S</div>
         <div>
-          <div class="nav-user-name" id="navName">Student</div>
+          <div class="nav-user-name" id="navName" >Student</div>
           <div class="nav-user-streak" id="navStreak">🔥 1 day</div>
         </div>
       </div>
@@ -1755,7 +1755,7 @@ function copyRef() {
 }
 function shareRefWA() {
   const code = (user.refCode||'').toUpperCase();
-  const link = window.location.origin + '/login/?ref=' + code;
+  const link = BASE_URL + '/login/?ref=' + code;
   const msg  = `🎓 *College Buddy* — Bihar ka Study Platform!\n\nClasses · Quiz · AI Study Buddy — FREE!\n\nMere referral code se join karo:\n🔗 ${link}\n\nCode: *${code}* 🚀`;
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
 }
