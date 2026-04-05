@@ -2062,7 +2062,7 @@ function renderQuizzes() {
   list.forEach(q => {
     const el = document.createElement('a');
     el.className = 'quiz-card';
-    el.href = `../play/?q=${enc(q.path||q.title)}&sem=${enc(q.semester||'')}&degree=${enc(q.degree||'')}`;
+    el.href = `../play/?q=${enc(q.path||q.title)}&sem=${enc(q.semester.toLowerCase||'')}&degree=${enc(q.degree||'')}`;
     el.innerHTML = `
       <div class="qc-icon">${ICO.quiz}</div>
       <div class="qc-info">
