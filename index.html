@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>College Buddy — Quality Education for Bihar 🎓</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS (matches common.css) ─────────────────── */
+:root {
+  --navy:   #1b3a5c;
+  --navy2:  #254e7a;
+  --green:  #52a823;
+  --green2: #3d8019;
+  --gold:   #f5a623;
+  --bg:     #f0f4f8;
+  --red:    #ef4444;
+  --white:  #ffffff;
+  --border: #e2e8f0;
+  --text:   #1e293b;
+  --muted:  #64748b;
+  --faint:  #94a3b8;
+  --radius: 14px;
+  --shadow: 0 4px 20px rgba(27,58,92,.09);
+  --shadow-lg: 0 8px 32px rgba(27,58,92,.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ─────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1.5px solid var(--border);
+  box-shadow: 0 2px 12px rgba(27,58,92,.08);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center;
+  padding: .55rem 1.5rem; gap: 1rem;
+}
+.nav-logo { height: 42px; object-fit: contain; flex-shrink: 0; }
+.nav-logo-text {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  font-size: 1.2rem; color: var(--navy); flex: 1;
+}
+.nav-logo-text span { color: var(--green); }
+.nav-links { display: flex; gap: .2rem; align-items: center; }
+.nav-links a {
+  font-family: 'Sora', sans-serif; font-weight: 600;
+  font-size: .82rem; color: var(--muted);
+  text-decoration: none; padding: .38rem .7rem;
+  border-radius: 8px; transition: all .2s;
+}
+.nav-links a:hover { color: var(--navy); background: var(--bg); }
+.nav-btn {
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  color: #fff !important; border-radius: 10px !important;
+  padding: .42rem .95rem !important;
+  box-shadow: 0 3px 10px rgba(82,168,35,.3);
+}
+.nav-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(82,168,35,.38) !important; }
+.hamburger {
+  display: none; flex-direction: column; gap: 4px; cursor: pointer;
+  padding: .3rem; background: none; border: none;
+}
+.hamburger span {
+  width: 22px; height: 2.5px; background: var(--navy);
+  border-radius: 99px; transition: all .3s;
+}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(140deg, #0f2640 0%, #1b3a5c 40%, #1a5e38 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 7rem 1.5rem 4rem;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(82,168,35,.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(245,166,35,.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-pattern {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; opacity: .07;
+}
+.hero-pattern svg { width: 100%; height: 100%; }
+
+/* Floating blobs */
+.blob {
+  position: absolute; border-radius: 50%; filter: blur(60px);
+  pointer-events: none; animation: blobFloat 8s ease-in-out infinite;
+}
+.blob-1 { width: 320px; height: 320px; background: rgba(82,168,35,.22);
+          top: -80px; right: -60px; animation-delay: 0s; }
+.blob-2 { width: 220px; height: 220px; background: rgba(245,166,35,.18);
+          bottom: 60px; left: -40px; animation-delay: 3s; }
+.blob-3 { width: 180px; height: 180px; background: rgba(27,58,92,.3);
+          top: 40%; right: 10%; animation-delay: 5s; }
+@keyframes blobFloat {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-24px) scale(1.06); }
+}
+
+.hero-chip {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 99px; padding: .3rem 1rem;
+  color: #a8e063; font-size: .72rem; font-weight: 700;
+  font-family: 'Sora', sans-serif; letter-spacing: .05em;
+  text-transform: uppercase; margin-bottom: 1.2rem;
+  animation: fadeUp .6s ease both;
+}
+.hero-chip .dot { width: 7px; height: 7px; background: #4ade80;
+                  border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+
+.hero h1 {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: #fff; font-size: clamp(2rem, 6vw, 3.8rem);
+  line-height: 1.15; margin-bottom: .8rem;
+  animation: fadeUp .7s .1s ease both;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,.65); font-size: clamp(.88rem, 2vw, 1.08rem);
+  max-width: 560px; margin: 0 auto 1rem; line-height: 1.7;
+  animation: fadeUp .7s .2s ease both;
+}
+.hero-tagline {
+  color: rgba(255,255,255,.4); font-size: .78rem; font-weight: 600;
+  font-family: 'Sora', sans-serif; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 2rem;
+  animation: fadeUp .7s .25s ease both;
+}
+
+.hero-btns {
+  display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp .7s .35s ease both;
+}
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  color: #fff; border: none; border-radius: 14px;
+  padding: .9rem 2rem; font-family: 'Sora', sans-serif;
+  font-weight: 800; font-size: .95rem; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(82,168,35,.45);
+  text-decoration: none; display: inline-flex;
+  align-items: center; gap: .5rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(82,168,35,.5); }
+.btn-hero-secondary {
+  background: rgba(255,255,255,.1); color: #fff;
+  border: 2px solid rgba(255,255,255,.25); border-radius: 14px;
+  padding: .9rem 2rem; font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: .95rem; cursor: pointer;
+  text-decoration: none; display: inline-flex;
+  align-items: center; gap: .5rem;
+  transition: all .2s; backdrop-filter: blur(8px);
+}
+.btn-hero-secondary:hover { background: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+/* Hero image strip */
+.hero-meme {
+  margin-top: 2.5rem; position: relative;
+  animation: fadeUp .7s .45s ease both;
+}
+.hero-meme-card {
+  background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.14);
+  border-radius: 20px; padding: 1.5rem 2rem;
+  backdrop-filter: blur(10px);
+  display: inline-block; max-width: 380px;
+}
+.meme-inner {
+  background: linear-gradient(135deg, rgba(82,168,35,.15), rgba(245,166,35,.1));
+  border-radius: 14px; padding: 2rem 1.5rem; text-align: center;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.meme-emoji { font-size: 3rem; margin-bottom: .5rem; }
+.meme-text {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: #fff; font-size: 1rem; line-height: 1.4;
+}
+.meme-sub { color: rgba(255,255,255,.5); font-size: .75rem; margin-top: .3rem; }
+
+/* ── SCROLL INDICATOR ──────────────────────────── */
+.scroll-indicator {
+  display: flex; flex-direction: column; align-items: center;
+  gap: .35rem; margin-top: 2.5rem; color: rgba(255,255,255,.35);
+  font-size: .65rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; font-family: 'Sora', sans-serif;
+  animation: fadeUp .7s .6s ease both;
+}
+.scroll-arrow {
+  width: 24px; height: 24px; border-right: 2px solid rgba(255,255,255,.3);
+  border-bottom: 2px solid rgba(255,255,255,.3);
+  transform: rotate(45deg); animation: scrollBounce 1.5s infinite;
+}
+@keyframes scrollBounce { 0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)} }
+
+/* ── SECTION COMMON ──────────────────────────── */
+.section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+.section-full { padding: 5rem 1.5rem; }
+.sec-chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(82,168,35,.1); border: 1.5px solid rgba(82,168,35,.25);
+  border-radius: 99px; padding: .28rem .85rem;
+  color: var(--green2); font-size: .68rem; font-weight: 800;
+  font-family: 'Sora', sans-serif; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: .75rem;
+}
+.sec-title {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: var(--navy); font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.2; margin-bottom: .6rem;
+}
+.sec-title em { color: var(--green); font-style: normal; }
+.sec-sub { color: var(--muted); font-size: .9rem; line-height: 1.7;
+           max-width: 540px; }
+
+/* ── KYA MILEGA ──────────────────────────────── */
+.features-section {
+  background: var(--white);
+  padding: 5rem 1.5rem;
+}
+.features-inner { max-width: 1100px; margin: 0 auto; }
+.features-header { text-align: center; margin-bottom: 3rem; }
+.features-header .sec-sub { margin: 0 auto; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .9rem;
+}
+.feat-card {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 1.4rem 1.1rem;
+  text-align: center; cursor: pointer;
+  transition: all .22s; position: relative; overflow: hidden;
+}
+.feat-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  opacity: 0; transition: opacity .22s;
+}
+.feat-card:hover { transform: translateY(-4px); border-color: var(--green);
+                   box-shadow: 0 8px 28px rgba(82,168,35,.18); }
+.feat-card:hover::before { opacity: 1; }
+.feat-card:hover .feat-icon,
+.feat-card:hover .feat-title,
+.feat-card:hover .feat-sub { color: #fff; position: relative; z-index: 1; }
+.feat-card:hover .feat-icon-wrap { background: rgba(255,255,255,.2); }
+.feat-icon-wrap {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(27,58,92,.07); display: flex;
+  align-items: center; justify-content: center;
+  margin: 0 auto .75rem; transition: background .22s;
+  position: relative; z-index: 1;
+}
+.feat-icon { font-size: 1.4rem; position: relative; z-index: 1; }
+.feat-title {
+  font-family: 'Sora', sans-serif; font-weight: 700;
+  color: var(--navy); font-size: .84rem;
+  margin-bottom: .2rem; position: relative; z-index: 1;
+  transition: color .22s;
+}
+.feat-sub {
+  font-size: .68rem; color: var(--muted); line-height: 1.45;
+  position: relative; z-index: 1; transition: color .22s;
+}
+
+/* Coming soon badge */
+.feat-badge {
+  position: absolute; top: .6rem; right: .6rem;
+  background: var(--gold); color: var(--navy);
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  font-size: .52rem; padding: .12rem .42rem; border-radius: 99px;
+  text-transform: uppercase; letter-spacing: .05em; z-index: 2;
+}
+
+/* ── ACHIEVEMENTS ─────────────────────────────── */
+.achievements-section {
+  background: linear-gradient(135deg, #0f2640 0%, #1b3a5c 55%, #1a5e38 100%);
+  padding: 5rem 1.5rem;
+  position: relative; overflow: hidden;
+}
+.achievements-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(82,168,35,.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.achievements-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.ach-header { text-align: center; margin-bottom: 2.5rem; }
+.ach-header .sec-title { color: #fff; }
+.ach-header .sec-sub { color: rgba(255,255,255,.55); margin: 0 auto; }
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .85rem;
+}
+@media(min-width: 600px) { .ach-grid { grid-template-columns: repeat(3, 1fr); } }
+@media(min-width: 900px) { .ach-grid { grid-template-columns: repeat(6, 1fr); } }
+
+.ach-card {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px; padding: 1.2rem .8rem; text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform .2s, background .2s;
+}
+.ach-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.12); }
+.ach-num {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: var(--gold); font-size: 1.6rem; line-height: 1;
+}
+.ach-lbl {
+  font-size: .65rem; color: rgba(255,255,255,.55); margin-top: .3rem;
+  font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+}
+
+/* ── PLATFORM INVITE ──────────────────────────── */
+.invite-section {
+  background: var(--bg); padding: 5rem 1.5rem;
+}
+.invite-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center;
+}
+/* .invite-left { } */
+.invite-right {
+  background: #fff; border-radius: 24px;
+  box-shadow: var(--shadow-lg); padding: 2rem;
+  border: 1.5px solid var(--border);
+}
+.invite-card-title {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: var(--navy); font-size: 1rem; margin-bottom: .5rem;
+}
+.invite-card-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.6; }
+.invite-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: .5rem; margin-bottom: 1.25rem;
+}
+.is-box {
+  background: var(--bg); border-radius: 12px; padding: .75rem;
+  text-align: center;
+}
+.is-num { font-family: 'Sora', sans-serif; font-weight: 800;
+          color: var(--navy); font-size: 1.2rem; }
+.is-lbl { font-size: .62rem; color: var(--faint); font-weight: 600;
+          text-transform: uppercase; margin-top: .1rem; }
+.btn-invite {
+  width: 100%; background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: #fff; border: none; border-radius: 12px; padding: .82rem;
+  font-family: 'Sora', sans-serif; font-weight: 800; font-size: .9rem;
+  cursor: pointer; text-decoration: none; display: block; text-align: center;
+  transition: transform .2s, box-shadow .2s; margin-bottom: .5rem;
+  box-shadow: 0 4px 16px rgba(27,58,92,.25);
+}
+.btn-invite:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,58,92,.32); }
+.btn-invite-green {
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  box-shadow: 0 4px 16px rgba(82,168,35,.3);
+}
+.btn-invite-green:hover { box-shadow: 0 8px 24px rgba(82,168,35,.4); }
+
+/* ── FOOTER ───────────────────────────────────── */
+.footer {
+  background: #0d2035;
+  padding: 3rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2rem; margin-bottom: 2.5rem;
+}
+.footer-brand .fb-logo {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: #fff; font-size: 1.2rem; margin-bottom: .5rem;
+}
+.footer-brand .fb-logo span { color: var(--green); }
+.footer-brand p {
+  font-size: .78rem; color: rgba(255,255,255,.4);
+  line-height: 1.65; max-width: 260px;
+}
+.footer-col h4 {
+  font-family: 'Sora', sans-serif; font-weight: 800;
+  color: rgba(255,255,255,.7); font-size: .75rem;
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: .85rem;
+}
+.footer-col a {
+  display: block; color: rgba(255,255,255,.4); font-size: .78rem;
+  text-decoration: none; padding: .2rem 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: #fff; }
+
+/* Social icons */
+.social-links { display: flex; gap: .55rem; margin-top: .85rem; flex-wrap: wrap; }
+.social-btn {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 1rem;
+  border: 1.5px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  transition: all .2s; color: rgba(255,255,255,.6);
+}
+.social-btn:hover { background: var(--green); border-color: var(--green); color: #fff; transform: translateY(-2px); }
+.social-btn.insta:hover { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: transparent; }
+.social-btn.yt:hover    { background: #ff0000; border-color: transparent; color: #fff; }
+.social-btn.wa:hover    { background: #25d366; border-color: transparent; color: #fff; }
+.social-btn.li:hover    { background: #0077b5; border-color: transparent; color: #fff; }
+.social-btn.tg:hover    { background: #229ED9; border-color: transparent; color: #fff; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .5rem;
+}
+.footer-bottom p { font-size: .72rem; color: rgba(255,255,255,.3); }
+.footer-policies { display: flex; gap: 1.2rem; }
+.footer-policies a {
+  font-size: .72rem; color: rgba(255,255,255,.3);
+  text-decoration: none; transition: color .2s;
+}
+.footer-policies a:hover { color: rgba(255,255,255,.7); }
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Intersection observer fade-in */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media(max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 60px; left: 0; right: 0;
+    background: #fff; padding: 1rem 1.5rem;
+    border-bottom: 1.5px solid var(--border);
+    box-shadow: 0 8px 24px rgba(27,58,92,.1);
+    gap: .3rem;
+  }
+  .invite-inner { grid-template-columns: 1fr; }
+  .footer-top   { grid-template-columns: 1fr; gap: 1.5rem; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .ach-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width: 400px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <img src="cbdlogo.png" alt="College Buddy" class="nav-logo"
+         onerror="this.outerHTML='<div style=\'font-family:Sora,sans-serif;font-weight:800;font-size:1.1rem;color:#1b3a5c\'>College<span style=\'color:#52a823\'>Buddy</span></div>'"/>
+    <div style="flex:1;"></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Kya Milega</a>
+      <a href="#achievements">About</a>
+      <a href="login/index.html">Login</a>
+      <a href="login/index.html" class="nav-btn">Join Now 🚀</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────── -->
+<section class="hero">
+  <!-- Background pattern -->
+  <div class="hero-pattern">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.5" fill="white"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="800" fill="url(#dots)"/>
+    </svg>
+  </div>
+  <!-- Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-chip">
+    <span class="dot"></span>
+    Bihar ka Education Platform
+  </div>
+
+  <h1>
+    A Platform <em>For</em> the Students,<br>
+    <em>Of</em> the Students,<br>
+    <em>By</em> the Students
+  </h1>
+  <p class="hero-sub">
+    Live Classes · Recorded Lectures · Quiz · AI Buddy · PYQs · Notes —
+    sab kuch ek jagah 🎓
+  </p>
+  <p class="hero-tagline">Bihar · Muzaffarpur · B.R.A. Bihar University</p>
+
+  <div class="hero-btns">
+    <a href="login/index.html" class="btn-hero-primary">
+      Join College Buddy 🚀
+    </a>
+    <a href="login/index.html" class="btn-hero-secondary">
+      🔑 Already a Member? Login
+    </a>
+  </div>
+
+  <div class="hero-meme">
+    <div class="hero-meme-card">
+      <div class="meme-inner">
+        <div class="meme-emoji">📚😂</div>
+        <div class="meme-text">Hamko Join Kar lo<br>Warna Exam mein<br>Rona Padega!</div>
+        <div class="meme-sub">Free hai bhai, kuch nahi jaata 😄</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll Down</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ── KYA MILEGA ──────────────────────────────── -->
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <div class="features-header reveal">
+      <div class="sec-chip">🎁 Kya Milega?</div>
+      <h2 class="sec-title">Sab Kuch <em>Ek Jagah</em></h2>
+      <p class="sec-sub">College Buddy mein join karo aur in sab cheezein access karo !</p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">📡</div></div>
+        <div class="feat-title">Live Classes</div>
+        <div class="feat-sub">Expert teachers ke saath real-time classes</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">🎬</div></div>
+        <div class="feat-title">Recorded Lectures</div>
+        <div class="feat-sub">Kabhi bhi, kahin bhi dekho</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">🌟</div></div>
+        <div class="feat-title">Special Webinars</div>
+        <div class="feat-sub">Industry experts se seedha seekho</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">📖</div></div>
+        <div class="feat-title">Syllabus, Ebook & Notes</div>
+        <div class="feat-sub">Puri study material ek click mein</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">🎯</div></div>
+        <div class="feat-title">PYQs & Mocks & Guess</div>
+        <div class="feat-sub">Previous years ke questions practice karo</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">📄</div></div>
+        <div class="feat-title">Research Papers</div>
+        <div class="feat-sub">Simply explained, easily understood</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">📝</div></div>
+        <div class="feat-title">Play Quiz</div>
+        <div class="feat-sub">Compete with peers, earn points</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">💬</div></div>
+        <div class="feat-title">Discuss with Peers</div>
+        <div class="feat-sub">Community mein doubts solve karo</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">🏫</div></div>
+        <div class="feat-title">Teach Others</div>
+        <div class="feat-sub">Share knowledge, grow together</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">💼</div></div>
+        <div class="feat-title">Internship For ALL</div>
+        <div class="feat-sub">Real-world experience, zero fees</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()">
+        <div class="feat-icon-wrap"><div class="feat-icon">🚀</div></div>
+        <div class="feat-title">Job Trainings</div>
+        <div class="feat-sub">Industry-ready skills seekho</div>
+      </div>
+
+      <div class="feat-card reveal" onclick="goLogin()" style="position:relative;">
+        <div class="feat-badge">Soon</div>
+        <div class="feat-icon-wrap"><div class="feat-icon">🤖</div></div>
+        <div class="feat-title">AI Study Buddy</div>
+        <div class="feat-sub">24/7 AI dost — kuch bhi pucho</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ────────────────────────────── -->
+<section class="achievements-section" id="achievements">
+  <div class="achievements-inner">
+    <div class="ach-header reveal">
+      <div class="sec-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.8);">🏆 Hamare Numbers</div>
+      <h2 class="sec-title" style="color:#fff; margin-top:.5rem;">Achievements</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.5);margin:0 auto;">
+        College Buddy ke saath hazaron students apna future bana rahe hain
+      </p>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <div class="ach-num">5000+</div>
+        <div class="ach-lbl">Active Buddy</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-num">50+</div>
+        <div class="ach-lbl">Industry Mentors</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-num">200+</div>
+        <div class="ach-lbl">Buddy Mentors</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-num">4000+</div>
+        <div class="ach-lbl">Hours Live</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-num">1000+</div>
+        <div class="ach-lbl">Hours Recorded</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-num">10k+</div>
+        <div class="ach-lbl">PDFs Shared</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLATFORM INVITE ─────────────────────────── -->
+<section class="invite-section">
+  <div class="invite-inner">
+    <div class="invite-left reveal">
+      <div class="sec-chip">🤝 Join the Community</div>
+      <h2 class="sec-title" style="margin-bottom:.75rem;">
+        Hamko <em>Join Kar lo</em><br>Yaar! 😄
+      </h2>
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin-bottom:1.5rem;">
+        Bihar ke hazaron students ke saath milkar padhao.
+        Live classes attend karo, quizzes khelo, AI Buddy se pucho —
+        sab kuch bilkul <strong>free</strong>. Koi fees nahi, koi catch nahi.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:.6rem;">
+        <div style="display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:var(--text);">
+          <span style="width:28px;height:28px;background:rgba(82,168,35,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">✅</span>
+          Registration bilkul free hai
+        </div>
+        <div style="display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:var(--text);">
+          <span style="width:28px;height:28px;background:rgba(82,168,35,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">✅</span>
+          Mobile number se 2 minute mein register
+        </div>
+        <div style="display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:var(--text);">
+          <span style="width:28px;height:28px;background:rgba(82,168,35,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">✅</span>
+          Apne semester ke classes aur quizzes
+        </div>
+        <div style="display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:var(--text);">
+          <span style="width:28px;height:28px;background:rgba(82,168,35,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">✅</span>
+          AI Study Buddy 24/7 available
+        </div>
+      </div>
+    </div>
+
+    <div class="invite-right reveal">
+      <div class="invite-card-title">🎓 Abhi Join Karo!</div>
+      <p class="invite-card-sub">
+        Ek step mein apna free account banao aur apni padhai shuru karo.
+        Koi payment nahi, koi OTP jhanjhat nahi.
+      </p>
+      <div class="invite-stats">
+        <div class="is-box">
+          <div class="is-num">5000+</div>
+          <div class="is-lbl">Students</div>
+        </div>
+        <div class="is-box">
+          <div class="is-num">Free</div>
+          <div class="is-lbl">Always</div>
+        </div>
+        <div class="is-box">
+          <div class="is-num">24/7</div>
+          <div class="is-lbl">AI Buddy</div>
+        </div>
+        <div class="is-box">
+          <div class="is-num">100%</div>
+          <div class="is-lbl">Student Run</div>
+        </div>
+      </div>
+      <a href="login/index.html" class="btn-invite btn-invite-green">
+        Join College Buddy — Free 🚀
+      </a>
+      <a href="login/index.html" class="btn-invite" style="margin-top:.5rem;">
+        🔑 Already Registered? Login Karein
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────── -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo">College<span>Buddy</span></div>
+        <p style="margin-top:.4rem;">
+          Bihar ke students ke liye, students ke dwara banaya hua
+          free education platform. Ek saath padhenge, ek saath badhenge. 🙏
+        </p>
+        <!-- Social Links — URLs set from JS below -->
+        <div class="social-links" id="socialLinks"></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="login/index.html">Login / Register</a>
+        <a href="dashboard/index.html">Dashboard</a>
+        <a href="dashboard/index.html">Classes</a>
+        <a href="dashboard/index.html">Quiz</a>
+        <a href="dashboard/index.html">AI Buddy</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#" id="footerInsta">📸 Instagram</a>
+        <a href="#" id="footerYT">▶️ YouTube</a>
+        <a href="#" id="footerWA">💬 WhatsApp</a>
+        <a href="#" id="footerLI">💼 LinkedIn</a>
+        <a href="#" id="footerTG">✈️ Telegram</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 College Buddy — Free education for Bihar 🙏</p>
+      <div class="footer-policies">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+<script>
+// ── Social Links config
+// Edit these URLs — they are read from here everywhere on this page
+const SOCIAL = {
+  instagram: 'https://instagram.com/college.buddy.classes',   // ← replace
+  youtube:   'https://youtube.com/@harshitislive7',   // ← replace
+  whatsapp:  'https://wa.me/919801907094?text=Hi+College+Buddy.+Ham+website+se+aa+rahe+hain',          // ← replace with group link
+  linkedin:  'https://linkedin.com/company/yourpage', // ← replace
+  telegram:  'https://t.me/college_buddy',            // ← replace
+};
+
+// ── Build social icon buttons ─────────────────
+const socialDefs = [
+  { key:'instagram', cls:'insta', icon:'📸', label:'Instagram' },
+  { key:'youtube',   cls:'yt',    icon:'▶️',  label:'YouTube'   },
+  { key:'whatsapp',  cls:'wa',    icon:'💬', label:'WhatsApp'  },
+  { key:'linkedin',  cls:'li',    icon:'💼', label:'LinkedIn'  },
+  { key:'telegram',  cls:'tg',    icon:'✈️',  label:'Telegram'  },
+];
+
+const socialWrap = document.getElementById('socialLinks');
+socialDefs.forEach(s => {
+  const a = document.createElement('a');
+  a.href = SOCIAL[s.key];
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.className = 'social-btn ' + s.cls;
+  a.title = s.label;
+  a.textContent = s.icon;
+  socialWrap.appendChild(a);
+});
+
+// ── Footer text links ─────────────────────────
+document.getElementById('footerInsta').href = SOCIAL.instagram;
+document.getElementById('footerYT').href    = SOCIAL.youtube;
+document.getElementById('footerWA').href    = SOCIAL.whatsapp;
+document.getElementById('footerLI').href    = SOCIAL.linkedin;
+document.getElementById('footerTG').href    = SOCIAL.telegram;
+
+// ── Login redirect ────────────────────────────
+function goLogin() {
+  window.location.href = 'login/index.html';
+}
+
+// ── Hamburger menu ────────────────────────────
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ── Scroll reveal ─────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── If already logged in, redirect dashboard ──
+const _u = getUser ? getUser() : null;
+if (_u) {
+  // Optionally redirect:
+  // window.location.href = 'dashboard/index.html';
+}
+</script>
+</body>
+</html>

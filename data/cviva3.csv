@@ -1,0 +1,21 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is malloc()?,Allocates dynamic memory,Opens a file,Closes a file,Reads input,1
+What is continue statement?,Skips current iteration,Stops the loop completely,Ends program,Restarts loop,1
+What is global variable?,Declared inside function,Declared outside all functions,Accessible only locally,Temporary variable,2
+What is fprintf()?,Reads data from file,Deletes file,Writes formatted data to file,Closes file,3
+What is fopen()?,Opens a file,Deletes a file,Closes a file,Creates variable,1
+What is dynamic memory allocation?,Compile-time memory allocation,Stack memory usage,Constant allocation,Runtime memory allocation,4
+What is scope of a variable?,Lifetime of variable,Size of variable,Where variable can be accessed,Type of variable,3
+What is fclose()?,Closes a file,Opens a file,Reads file,Allocates memory,1
+What is break statement?,Skips iteration,Restarts loop,Exits loop immediately,Pauses loop,3
+What is a file?,A collection of data stored permanently,Temporary memory,CPU register,Loop structure,1
+What is EOF?,Start of file,Middle of file,File pointer,End of file indicator,4
+What is fscanf()?,Writes to file,Deletes file,Opens file,Reads formatted data from file,4
+What is return statement in C?,Declares variable,Ends function and returns value,Starts loop,Allocates memory,2
+What is static variable?,Changes every time,Local only,Retains value between calls,Global only,3
+What is lifetime of a variable?,Time variable exists in memory,Memory size,Scope of variable,Type of variable,1
+What is void data type?,Stores integers,Stores characters,Stores float,Represents no value,4
+What is nesting in functions?,Loop inside loop,Variable inside loop,Function inside function call,File inside file,3
+What is local variable?,Declared inside function,Accessible everywhere,Declared outside program,Stored permanently,1
+What is loop control statement?,Controls memory,Controls file operations,Controls loop execution flow,Declares variables,3
+What is static variable initialized?,Only once,Every time called,Never initialized,Randomly initialized,1

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>College Buddy – Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../common.css"/>
+<style>
+
+/* ═══════════════════════════════════════
+   PAGE BASE
+═══════════════════════════════════════ */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('../images/bg-pattern.png') center/cover no-repeat;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle gradient overlay on top of pattern */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(27,58,92,0.72) 0%, rgba(26,94,56,0.55) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════
+   WRAP
+═══════════════════════════════════════ */
+.login-wrap {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   HERO  (shrinks on Step 2)
+═══════════════════════════════════════ */
+.login-hero {
+  background: linear-gradient(140deg, #1b3a5c 0%, #254e7a 50%, #1a5e38 100%);
+  border-radius: 22px 22px 0 0;
+  padding: 2.2rem 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: padding .35s ease, max-height .35s ease;
+}
+.login-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 20%, rgba(82,168,35,.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.login-hero::after {
+  content: '{ }';
+  position: absolute;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 9rem;
+  color: rgba(255,255,255,.04);
+  right: -1.5rem;
+  bottom: -2rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Shrunken hero (Step 2) */
+.login-hero.shrunk {
+  padding: 1rem 1.5rem .9rem;
+}
+.login-hero.shrunk .hero-tagline { display: none; }
+.login-hero.shrunk .hero-logo    { height: 36px; margin-bottom: .4rem; }
+.login-hero.shrunk h1            { font-size: 1rem; }
+.login-hero.shrunk .online-pill  { display: none; }
+
+.hero-logo {
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: .85rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.22));
+  transition: height .35s ease, margin-bottom .35s ease;
+}
+.online-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 99px;
+  padding: .26rem .85rem;
+  margin-bottom: .7rem;
+  transition: opacity .3s;
+}
+.online-dot {
+  width: 7px; height: 7px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.online-pill span {
+  font-size: .67rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.88);
+  font-family: 'Sora', sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.login-hero h1 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: clamp(1.3rem, 5vw, 1.75rem);
+  line-height: 1.22;
+  transition: font-size .35s ease;
+}
+.login-hero h1 em { color: var(--gold); font-style: normal; }
+.hero-tagline {
+  color: rgba(255,255,255,.58);
+  font-size: .78rem;
+  margin-top: .28rem;
+  transition: opacity .3s;
+}
+
+/* ═══════════════════════════════════════
+   BODY CARD
+═══════════════════════════════════════ */
+.login-body {
+  background: var(--white);
+  border-radius: 0 0 22px 22px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,.22);
+}
+
+/* ═══════════════════════════════════════
+   AUTH TABS
+═══════════════════════════════════════ */
+.auth-tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 1.25rem;
+  gap: 0;
+}
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  color: var(--muted);
+  transition: all .2s;
+  user-select: none;
+}
+.auth-tab.active {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(27,58,92,.1);
+}
+
+/* ═══════════════════════════════════════
+   PROGRESS BAR  (register only)
+═══════════════════════════════════════ */
+.reg-progress {
+  margin-bottom: 1.25rem;
+  display: none;
+}
+.reg-progress.visible { display: block; }
+.rp-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .4rem;
+}
+.rp-label {
+  font-size: .7rem;
+  font-weight: 700;
+  font-family: 'Sora', sans-serif;
+  color: var(--faint);
+  transition: color .3s;
+}
+.rp-label.active { color: var(--green); }
+.rp-track {
+  width: 100%;
+  height: 5px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.rp-fill {
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, var(--green), #7dd44a);
+  border-radius: 99px;
+  transition: width .4s ease;
+}
+
+/* ═══════════════════════════════════════
+   PASSWORD FIELD WITH TOGGLE
+═══════════════════════════════════════ */
+.pass-wrap {
+  position: relative;
+}
+.pass-wrap .fi {
+  padding-right: 2.8rem;
+}
+.pass-toggle {
+  position: absolute;
+  right: .75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .2rem;
+  color: var(--faint);
+  display: flex;
+  align-items: center;
+  transition: color .2s;
+}
+.pass-toggle:hover { color: var(--navy); }
+.pass-toggle svg   { width: 18px; height: 18px; }
+
+/* ═══════════════════════════════════════
+   LINKS & HELPERS
+═══════════════════════════════════════ */
+.link-text {
+  color: var(--green2);
+  font-size: .77rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+}
+.link-text:hover { color: var(--navy); }
+
+.forgot-row {
+  text-align: right;
+  margin-top: -.3rem;
+  margin-bottom: .85rem;
+}
+
+.switch-row {
+  text-align: center;
+  font-size: .73rem;
+  color: var(--muted);
+  margin-top: .8rem;
+}
+
+/* ═══════════════════════════════════════
+   STEP NAVIGATION BUTTONS
+═══════════════════════════════════════ */
+.step-nav {
+  display: flex;
+  gap: .6rem;
+  margin-top: .2rem;
+}
+.step-nav .btn { flex: 1; }
+.btn-back {
+  background: var(--white);
+  border: 2px solid var(--border);
+  color: var(--navy);
+  box-shadow: none;
+}
+.btn-back:hover { border-color: var(--navy); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.login-foot {
+  text-align: center;
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+  margin-top: .9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   BLOCKED SCREEN  (full page overlay)
+═══════════════════════════════════════ */
+.blocked-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(160deg, #1b3a5c 0%, #1a5e38 100%);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex-direction: column;
+  text-align: center;
+}
+.blocked-screen.show { display: flex; }
+.blocked-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.blocked-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+.blocked-msg {
+  color: rgba(255,255,255,.65);
+  font-size: .9rem;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 2rem;
+}
+.blocked-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: #25d366;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: .9rem 1.75rem;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(37,211,102,.4);
+  transition: transform .15s, box-shadow .15s;
+}
+.blocked-wa-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37,211,102,.5);
+}
+.blocked-wa-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+.blocked-back {
+  margin-top: 1.2rem;
+  color: rgba(255,255,255,.5);
+  font-size: .78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.blocked-back:hover { color: rgba(255,255,255,.8); }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     BLOCKED SCREEN
+═══════════════════════════════════ -->
+<div class="blocked-screen" id="blockedScreen">
+  <div class="blocked-icon">🚫</div>
+  <div class="blocked-title">Account Deactivated</div>
+  <p class="blocked-msg">
+    Aapka account temporarily deactivate kar diya gaya hai.<br>
+    Kisi help ke liye humse WhatsApp par contact karein.
+  </p>
+  <a class="blocked-wa-btn" id="blockedWaLink" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.522 5.857L.058 23.5l5.818-1.525A11.939 11.939 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 0 1-5.012-1.369l-.358-.213-3.724.976.994-3.63-.234-.373A9.79 9.79 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/>
+    </svg>
+    WhatsApp par Contact Karein
+  </a>
+  <button class="blocked-back" onclick="hideBlocked()">← Wapas Login par jao</button>
+</div>
+
+<!-- ═══════════════════════════════════
+     MAIN LOGIN WRAP
+═══════════════════════════════════ -->
+<div class="login-wrap">
+
+  <!-- HERO -->
+  <div class="login-hero" id="loginHero">
+    <img
+      src="../images/cbdlogo.png"
+      alt="College Buddy"
+      class="hero-logo"
+      onerror="this.outerHTML='<div style=\'font-family:Sora,sans-serif;font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:.85rem\'>College<span style=\'color:#f5a623\'>Buddy</span></div>'"
+    />
+    <div class="online-pill">
+      <span class="online-dot"></span>
+      <span>College Buddy Platform</span>
+    </div>
+    <h1>Apna <em>Study</em> Portal 🎓</h1>
+    <p class="hero-tagline">Classes · Quiz · AI Chat — sab ek jagah</p>
+  </div>
+
+  <!-- BODY -->
+  <div class="login-body">
+
+    <!-- TABS -->
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabLogin"    onclick="switchTab('login')">🔑 Login</div>
+      <div class="auth-tab"        id="tabRegister" onclick="switchTab('register')">📝 Register</div>
+    </div>
+
+    <!-- ─────────────────────────────
+         LOGIN FORM
+    ───────────────────────────────── -->
+    <div id="loginForm">
+
+      <div class="field">
+        <label class="lbl">Mobile Number <span class="req">*</span></label>
+        <input
+          type="tel" id="lMob" class="fi"
+          placeholder="10-digit number"
+          maxlength="10" inputmode="numeric"
+        />
+        <p class="et" id="eLMob">Valid 10-digit number chahiye.</p>
+      </div>
+
+      <div class="field">
+        <label class="lbl">Password <span class="req">*</span></label>
+        <div class="pass-wrap">
+          <input
+            type="password" id="lPass" class="fi"
+            placeholder="Apna password"
+          />
+          <button type="button" class="pass-toggle" onclick="togglePass('lPass', this)" tabindex="-1">
+            <!-- eye-off icon (default = password hidden) -->
+            <svg id="lPassIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+              <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+        </div>
+        <p class="et" id="eLPass">Password required hai.</p>
+      </div>
+
+      <div class="forgot-row">
+        <button class="link-text" onclick="handleForgotPassword()" type="button">
+          Forgot password? WhatsApp karein →
+        </button>
+      </div>
+
+      <button class="btn btn-green" id="loginBtn" onclick="handleLogin()">
+        <div class="spin" id="loginSpin"></div>
+        <span id="loginTxt">Login &amp; Continue 🚀</span>
+      </button>
+
+      <p class="switch-row">
+        Account nahi hai?
+        <button class="link-text" onclick="switchTab('register')">Register karein →</button>
+      </p>
+    </div>
+
+    <!-- ─────────────────────────────
+         REGISTER FORM
+    ───────────────────────────────── -->
+    <div id="registerForm" style="display:none;">
+
+      <!-- Progress bar -->
+      <div class="reg-progress visible" id="regProgress">
+        <div class="rp-labels">
+          <span class="rp-label active" id="rpL1">Step 1 — Basic Info</span>
+          <span class="rp-label"        id="rpL2">Step 2 — Study Details</span>
+        </div>
+        <div class="rp-track">
+          <div class="rp-fill" id="rpFill"></div>
+        </div>
+      </div>
+
+      <!-- ── STEP 1 ── -->
+      <div id="regStep1">
+
+        <div class="field">
+          <label class="lbl">Full Name <span class="req">*</span></label>
+          <input
+            type="text" id="rName" class="fi"
+            placeholder="Apna pura naam" autocomplete="name"
+          />
+          <p class="et" id="eRName">Naam required hai.</p>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Mobile Number <span class="req">*</span></label>
+          <input
+            type="tel" id="rMob" class="fi"
+            placeholder="10-digit number"
+            maxlength="10" inputmode="numeric"
+          />
+          <p class="et" id="eRMob">Valid 10-digit number chahiye.</p>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Email <span class="req">*</span></label>
+          <input
+            type="email" id="rEmail" class="fi"
+            placeholder="example@gmail.com" inputmode="email"
+          />
+          <p class="et" id="eREmail">Valid email chahiye.</p>
+        </div>
+
+        <div class="field" style="margin-bottom:1.1rem;">
+          <label class="lbl">Create Password <span class="req">*</span></label>
+          <div class="pass-wrap">
+            <input
+              type="password" id="rPass" class="fi"
+              placeholder="Min 6 characters"
+            />
+            <button type="button" class="pass-toggle" onclick="togglePass('rPass', this)" tabindex="-1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <p class="et" id="eRPass">Min 6 character password chahiye.</p>
+        </div>
+
+        <button class="btn btn-green" onclick="goToStep2()">
+          Next — Study Details →
+        </button>
+
+        <p class="switch-row">
+          Already registered?
+          <button class="link-text" onclick="switchTab('login')">Login karein →</button>
+        </p>
+      </div>
+
+      <!-- ── STEP 2 ── -->
+      <div id="regStep2" style="display:none;">
+
+        <div class="field">
+          <label class="lbl">Degree <span class="req">*</span></label>
+          <select id="rDegree" class="fi">
+            <option value="">-- Degree Select Karein --</option>
+            <option value="BCA">BCA (Bachelor of Computer Applications)</option>
+            <option value="BBA">BBA (Bachelor of Business Administration)</option>
+            <option value="BSc">BSc</option>
+            <option value="BCom">BCom</option>
+            <option value="BA">BA</option>
+            <option value="Other">Other</option>
+          </select>
+          <p class="et" id="eRDegree">Degree select karein.</p>
+        </div>
+
+        <div class="field">
+          <label class="lbl">College <span class="req">*</span></label>
+          <select id="rCollege" class="fi">
+            <option value="">-- College Select Karein --</option>
+          </select>
+          <p class="et" id="eRCollege">College select karein.</p>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Semester <span class="req">*</span></label>
+          <select id="rSem" class="fi">
+            <option value="">-- Semester --</option>
+            <option value="1">1st Semester</option>
+            <option value="2">2nd Semester</option>
+            <option value="3">3rd Semester</option>
+            <option value="4">4th Semester</option>
+            <option value="5">5th Semester</option>
+            <option value="6">6th Semester</option>
+            <option value="7">7th Semester</option>
+            <option value="8">8th Semester</option>
+          </select>
+          <p class="et" id="eRSem">Semester select karein.</p>
+        </div>
+
+        <div class="field" style="margin-bottom:1.1rem;">
+          <label class="lbl">Referral Code <span style="color:var(--faint);font-weight:400;">(optional)</span></label>
+          <input
+            type="text" id="rRef" class="fi"
+            placeholder="Friend ka referral code"
+          />
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-back" onclick="goToStep1()">← Back</button>
+          <button class="btn btn-green" id="registerBtn" onclick="handleRegister()">
+            <div class="spin" id="registerSpin"></div>
+            <span id="registerTxt">Register 🚀</span>
+          </button>
+        </div>
+
+        <p class="switch-row">
+          Already registered?
+          <button class="link-text" onclick="switchTab('login')">Login karein →</button>
+        </p>
+      </div>
+
+    </div><!-- /registerForm -->
+
+  </div><!-- /login-body -->
+
+  <p class="login-foot">© College Buddy — Quality education for Bihar 🙏</p>
+
+</div><!-- /login-wrap -->
+
+<script src="../common.js"></script>
+<script>
+
+// ═══════════════════════════════════════════════════
+//  CONSTANTS
+// ═══════════════════════════════════════════════════
+const SUPPORT_WA = '+919801907094';
+
+// ═══════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════
+(function init() {
+  // Populate college dropdown
+  const sel = document.getElementById('rCollege');
+  COLLEGES.forEach(c => {
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+  });
+
+  // Pre-fill ref code from URL ?ref=
+  const urlRef = new URLSearchParams(window.location.search).get('ref');
+  if (urlRef) {
+    document.getElementById('rRef').value = urlRef;
+    switchTab('register');
+  }
+
+  // Redirect if already logged in
+  const existing = getUser();
+  if (existing) {
+    const next = new URLSearchParams(window.location.search).get('next');
+    window.location.href = next || '../dashboard/';
+    return;
+  }
+
+  // Enter key support
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const loginVisible = document.getElementById('loginForm').style.display !== 'none';
+    if (loginVisible) { handleLogin(); return; }
+    const s2Visible = document.getElementById('regStep2').style.display !== 'none';
+    if (s2Visible) handleRegister();
+    else goToStep2();
+  });
+})();
+
+// ═══════════════════════════════════════════════════
+//  TAB SWITCH
+// ═══════════════════════════════════════════════════
+function switchTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('tabLogin').classList.toggle('active', isLogin);
+  document.getElementById('tabRegister').classList.toggle('active', !isLogin);
+  document.getElementById('loginForm').style.display    = isLogin ? 'block' : 'none';
+  document.getElementById('registerForm').style.display = isLogin ? 'none'  : 'block';
+
+  // Hero always full on login tab; shrink/restore based on register step
+  const hero = document.getElementById('loginHero');
+  if (isLogin) {
+    hero.classList.remove('shrunk');
+  } else {
+    // Restore to step1 view (full hero) when switching to register tab
+    const s2 = document.getElementById('regStep2');
+    if (s2.style.display !== 'none') {
+      hero.classList.add('shrunk');
+    } else {
+      hero.classList.remove('shrunk');
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════
+//  STEP NAVIGATION
+// ═══════════════════════════════════════════════════
+function goToStep2() {
+  // Validate Step 1 fields
+  const name  = document.getElementById('rName').value.trim();
+  const mob   = document.getElementById('rMob').value.trim();
+  const email = document.getElementById('rEmail').value.trim();
+  const pass  = document.getElementById('rPass').value.trim();
+  let ok = true;
+
+  toggleErr('rName',  !name,                                        'eRName',  'Naam required hai.');
+  toggleErr('rMob',   !/^\d{10}$/.test(mob),                        'eRMob',   'Valid 10-digit number chahiye.');
+  toggleErr('rEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),   'eREmail', 'Valid email chahiye.');
+  toggleErr('rPass',  pass.length < 6,                              'eRPass',  'Min 6 character password chahiye.');
+
+  if (!name || !/^\d{10}$/.test(mob) ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || pass.length < 6) return;
+
+  // Switch to Step 2
+  document.getElementById('regStep1').style.display = 'none';
+  document.getElementById('regStep2').style.display = 'block';
+  setProgress(2);
+  document.getElementById('loginHero').classList.add('shrunk');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToStep1() {
+  document.getElementById('regStep2').style.display = 'none';
+  document.getElementById('regStep1').style.display = 'block';
+  setProgress(1);
+  document.getElementById('loginHero').classList.remove('shrunk');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setProgress(step) {
+  const fill  = document.getElementById('rpFill');
+  const lbl1  = document.getElementById('rpL1');
+  const lbl2  = document.getElementById('rpL2');
+  if (step === 1) {
+    fill.style.width = '50%';
+    lbl1.classList.add('active');
+    lbl2.classList.remove('active');
+  } else {
+    fill.style.width = '100%';
+    lbl1.classList.remove('active');
+    lbl2.classList.add('active');
+  }
+}
+
+// ═══════════════════════════════════════════════════
+//  PASSWORD TOGGLE
+// ═══════════════════════════════════════════════════
+const EYE_OPEN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
+</svg>`;
+
+const EYE_OFF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+  <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+  <line x1="1" y1="1" x2="23" y2="23"/>
+</svg>`;
+
+function togglePass(inputId, btn) {
+  const input  = document.getElementById(inputId);
+  const isText = input.type === 'text';
+  input.type   = isText ? 'password' : 'text';
+  btn.innerHTML = isText ? EYE_OFF : EYE_OPEN;
+}
+
+// ═══════════════════════════════════════════════════
+//  FORGOT PASSWORD
+// ═══════════════════════════════════════════════════
+function handleForgotPassword() {
+  const mob = document.getElementById('lMob').value.trim();
+  let msg   = 'Namaste! Mujhe apna College Buddy password reset karna hai.';
+  if (/^\d{10}$/.test(mob)) {
+    msg = 'Namaste! Mera registered number ' + mob + ' hai. Mujhe password reset mein help chahiye.';
+  }
+  const waUrl = 'https://wa.me/' + SUPPORT_WA.replace('+','') +
+                '?text=' + encodeURIComponent(msg);
+  window.open(waUrl, '_blank');
+}
+
+// ═══════════════════════════════════════════════════
+//  BLOCKED SCREEN
+// ═══════════════════════════════════════════════════
+function showBlocked(mobile) {
+  const msg = 'Namaste! Mera College Buddy account (' + (mobile || '') +
+              ') deactivate ho gaya hai. Please help karein.';
+  const link = 'https://wa.me/' + SUPPORT_WA.replace('+','') +
+               '?text=' + encodeURIComponent(msg);
+  document.getElementById('blockedWaLink').href = link;
+  document.getElementById('blockedScreen').classList.add('show');
+}
+
+function hideBlocked() {
+  document.getElementById('blockedScreen').classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════════
+//  LOGIN
+// ═══════════════════════════════════════════════════
+async function handleLogin() {
+  const mob  = document.getElementById('lMob').value.trim();
+  const pass = document.getElementById('lPass').value.trim();
+
+  const mobOk  = /^\d{10}$/.test(mob);
+  const passOk = pass.length > 0;
+  toggleErr('lMob',  !mobOk,  'eLMob',  'Valid 10-digit number chahiye.');
+  toggleErr('lPass', !passOk, 'eLPass', 'Password required hai.');
+  if (!mobOk || !passOk) return;
+
+  setBtnLoad('loginBtn', 'loginSpin', 'loginTxt', true);
+  try {
+    const data = await apiGet({ action: 'loginUser', mobile: mob, password: pass });
+
+    if (data.status === 'blocked') {
+      showBlocked(mob);
+      return;
+    }
+
+    if (data.status === 'ok') {
+      saveUser({ ...data.user, mobile: mob });
+      const next = new URLSearchParams(window.location.search).get('next');
+      window.location.href = next || '../dashboard/';
+      return;
+    }
+
+    showToast(data.message || 'Wrong mobile or password', 'error');
+  } catch (_) {
+    showToast('Network error. Try again.', 'error');
+  }
+  setBtnLoad('loginBtn', 'loginSpin', 'loginTxt', false);
+}
+
+// ═══════════════════════════════════════════════════
+//  REGISTER
+// ═══════════════════════════════════════════════════
+async function handleRegister() {
+  // Step 1 values (preserved)
+  const name  = document.getElementById('rName').value.trim();
+  const mob   = document.getElementById('rMob').value.trim();
+  const email = document.getElementById('rEmail').value.trim();
+  const pass  = document.getElementById('rPass').value.trim();
+
+  // Step 2 values
+  const degree  = document.getElementById('rDegree').value;
+  const college = document.getElementById('rCollege').value;
+  const sem     = document.getElementById('rSem').value;
+  const ref     = document.getElementById('rRef').value.trim();
+
+  // Validate Step 2
+  let ok = true;
+  if (!degree)  { toggleErr('rDegree',  true, 'eRDegree',  'Degree select karein.');  ok = false; }
+  else            toggleErr('rDegree',  false, 'eRDegree',  '');
+  if (!college) { toggleErr('rCollege', true, 'eRCollege', 'College select karein.'); ok = false; }
+  else            toggleErr('rCollege', false, 'eRCollege', '');
+  if (!sem)     { toggleErr('rSem',     true, 'eRSem',     'Semester select karein.'); ok = false; }
+  else            toggleErr('rSem',     false, 'eRSem',     '');
+  if (!ok) return;
+
+  setBtnLoad('registerBtn', 'registerSpin', 'registerTxt', true);
+  try {
+    const params = new URLSearchParams({
+      action: 'registerUser',
+      name, degree, college,
+      semester: sem,
+      email, mobile: mob,
+      password: pass,
+      ref: ref || '',
+      timestamp: now(),
+    });
+    const res  = await fetch(SHEET_URL + '?' + params.toString());
+    const data = await res.json();
+
+    if (data.status === 'ok') {
+      saveUser({
+        name, degree, college,
+        semester: sem,
+        email, mobile: mob,
+        totalScore: 0, classesAttended: 0,
+        quizPlayed: 0, loginStreak: 1,
+        refCode:    data.user?.refCode || '',
+        isPaid:     false,
+        paidFor:    '',
+        isActive:   true,
+      });
+      showToast('Registration successful! 🎉', 'success');
+      setTimeout(() => { window.location.href = '../dashboard/'; }, 900);
+      return;
+    }
+
+    showToast(data.message || 'Registration failed. Try again.', 'error');
+  } catch (_) {
+    showToast('Network error. Try again.', 'error');
+  }
+  setBtnLoad('registerBtn', 'registerSpin', 'registerTxt', false);
+}
+
+// ═══════════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════════
+function toggleErr(fieldId, hasErr, errId, msg) {
+  const field = document.getElementById(fieldId);
+  const errEl = document.getElementById(errId);
+  if (field) field.classList.toggle('err', hasErr);
+  if (errEl) {
+    errEl.style.display = hasErr ? 'block' : 'none';
+    if (msg) errEl.textContent = msg;
+  }
+}
+
+function setBtnLoad(btnId, spinId, txtId, loading) {
+  const btn  = document.getElementById(btnId);
+  const spin = document.getElementById(spinId);
+  const txt  = document.getElementById(txtId);
+  if (btn)  btn.disabled       = loading;
+  if (spin) spin.style.display = loading ? 'block' : 'none';
+  if (txt)  txt.style.display  = loading ? 'none'  : 'inline';
+}
+
+</script>
+</body>
+</html>

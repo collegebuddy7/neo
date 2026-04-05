@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What does a C program structure include?,Only variables,Headers and main function only,Headers main function declarations and statements,Only loops,3
+What are C tokens?,Large programs,Smallest meaningful units,Only variables,Only functions,2
+What are keywords in C?,User defined names,Reserved words,Loop variables,Constants,2
+What are identifiers?,Operators,Names of variables and functions,Loops,Keywords,2
+What is a variable?,Fixed value,Memory location for data,Operator,Loop,2
+What is a constant?,Changing value,Fixed value,Loop,Function,2
+What do data types define?,Program size,Type of data stored,Loop count,Function name,2
+What is an operator?,Symbol for operations,Loop structure,Function,Variable,1
+What is an algorithm?,Code execution,Step by step solution,Loop,Output,2
+What is a flowchart?,Text explanation,Graphical representation of algorithm,Loop structure,Operator,2
