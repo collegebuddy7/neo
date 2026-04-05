@@ -1,0 +1,21 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What does a pointer store in C?,Address of variable,Value of variable,Function name,Data type,1
+Which operator is used to access value at pointer?,&,*,%,#,2
+What is NULL pointer?,Points to zero location,Uninitialized pointer,Points to valid memory,Constant pointer,1
+What is dangling pointer?,Points to active memory,Points to freed memory,Points to NULL,Points to function,2
+Pointer arithmetic is mainly used for?,Array traversal,Loop control,String copy,File handling,1
+What is a string in C?,Collection of chars ending with '\0',Single char,Pointer only,Group of integers,1
+Which function gives string length?,strlen(),strcmp(),strcpy(),strcat(),1
+What does strcpy() do?,Compare strings,Copy string,Join strings,Find length,2
+Which function joins two strings?,strcmp(),strcpy(),strcat(),strlen(),3
+strcmp() is used for?,Comparing strings,Printing strings,Copying strings,Joining strings,1
+What is file handling in C?,Permanent storage using files,Temporary storage,Loop execution,Memory allocation,1
+Which function opens a file?,fclose(),fscanf(),fprintf(),fopen(),4
+What does fclose() do?,Opens file,Closes file,Deletes file,Reads file,2
+fprintf() is used to?,Write formatted data,Allocate memory,Close file,Read from file,1
+fscanf() is used for?,Opening file,Writing to file,Reading formatted data,Deleting file,3
+What is EOF?,End of file indicator,Start of file,Middle of file,Error code,1
+Which function reads single character from file?,fputc(),fprintf(),fgetc(),fscanf(),3
+Which function writes single character to file?,fgetc(),fprintf(),fscanf(),fputc(),4
+What does rewind() do?,Deletes file,Moves pointer to start,Closes file,Reads file,2
+feof() is used to?,Check end of file,Check file size,Write file,Open file,1
