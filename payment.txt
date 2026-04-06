@@ -1,0 +1,29 @@
+Key requirements:
+
+Tailwind via CDN
+SVG icons instead of emojis
+Cards centered, same height/width
+One card at a time
+Subjects: slide 1 = all 6 subjects grid, slides 2-7 = each subject's 5 points
+Features: slide 1 = all features grid, then detail slides. Include Quiz and AI Buddy.
+Let me design the SVG icons inline. I'll use simple clean SVG icons.For subjects:
+
+BCA-201 Discrete Math: math/function icon
+BCA-202 Computer Architecture: cpu/chip icon
+BCA-203 Data Structures: linked nodes icon
+BCA-204 System Analysis: flowchart icon
+BCA-205 MS Office: grid/apps icon
+BCA-206 DSA Lab: terminal/code icon
+For features:
+
+Live Classes: video camera
+Recordings: play button
+Assignments: clipboard
+Ebook Notes: book
+PYQs: search/magnify
+Guess Papers: lightbulb
+Coding Practicals: code brackets
+Discussion: chat bubbles
+Answer Writing: pen
+Weekly Quizzes: quiz/check
+AI Buddy: brain/bot

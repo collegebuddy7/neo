@@ -55,26 +55,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .deck-inner{display:flex;gap:0;transition:transform .38s cubic-bezier(.4,0,.2,1);will-change:transform;}
 .deck-card{flex-shrink:0;width:100%;max-width:100%;background:var(--white);border-radius:18px;box-shadow:0 3px 16px rgba(27,58,92,.1);overflow:hidden;border:1.5px solid var(--border);}
 
-/* Overview card */
-.deck-card.overview .ov-hdr{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:.85rem 1rem;display:flex;align-items:center;gap:.6rem;}
-.ov-hdr-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
-.ov-hdr-title{font-family:'Sora',sans-serif;font-weight:800;color:#fff;font-size:.88rem;}
-.ov-hdr-sub{font-size:.65rem;color:rgba(255,255,255,.55);margin-top:.05rem;}
-.ov-body{padding:.75rem 1rem .9rem;}
-.ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:.38rem;}
-.ov-item{background:#f8fafc;border-radius:9px;padding:.5rem .6rem;font-size:.72rem;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:.3rem;border:1px solid var(--border);}
-.ov-item-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+/* Grid card (overview) */
+.deck-card.grid-card .grid-header{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:.85rem 1rem;display:flex;align-items:center;gap:.6rem;}
+.grid-header-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.grid-header-title{font-family:'Sora',sans-serif;font-weight:800;color:#fff;font-size:.88rem;}
+.grid-header-sub{font-size:.65rem;color:rgba(255,255,255,.55);margin-top:.05rem;}
+.grid-body{padding:.75rem 1rem .9rem;}
+.subject-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;}
+.grid-item{background:#f8fafc;border-radius:9px;padding:.5rem .6rem;font-size:.72rem;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:.3rem;border:1px solid var(--border);}
+.grid-item-icon{font-size:.95rem;flex-shrink:0;}
+.grid-item-code{font-size:.58rem;color:var(--gold2);font-weight:700;font-family:'Sora',sans-serif;display:block;line-height:1.1;}
+.grid-item-label{font-size:.65rem;line-height:1.2;}
 
 /* Detail card */
-.dt-hdr{padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;}
-.dt-hdr-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:rgba(82,168,35,.1);}
-.dt-hdr-title{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.86rem;}
-.dt-hdr-code{font-size:.63rem;color:var(--gold2);font-weight:700;font-family:'Sora',sans-serif;background:rgba(245,166,35,.12);padding:.1rem .4rem;border-radius:4px;margin-bottom:.05rem;display:inline-block;}
-.dt-hdr-sub{font-size:.63rem;color:var(--faint);margin-top:.03rem;}
-.dt-divider{height:1px;background:var(--border);margin:0 1rem;}
-.dt-points{padding:.65rem 1rem .9rem;display:flex;flex-direction:column;gap:.38rem;}
-.dt-point{display:flex;align-items:flex-start;gap:.5rem;font-size:.75rem;color:var(--text);line-height:1.5;}
-.dt-point-num{width:18px;height:18px;border-radius:50%;flex-shrink:0;background:var(--green);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:.6rem;display:flex;align-items:center;justify-content:center;margin-top:.05rem;}
+.deck-card.detail-card .detail-header{padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;}
+.detail-header-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:rgba(82,168,35,.1);}
+.detail-header-content{flex:1;}
+.detail-header-code{font-size:.63rem;color:var(--gold2);font-weight:700;font-family:'Sora',sans-serif;background:rgba(245,166,35,.12);padding:.1rem .4rem;border-radius:4px;display:inline-block;}
+.detail-header-title{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.86rem;margin-top:.03rem;}
+.detail-header-sub{font-size:.63rem;color:var(--faint);margin-top:.03rem;}
+.detail-divider{height:1px;background:var(--border);margin:0 1rem;}
+.detail-points{padding:.65rem 1rem .9rem;display:flex;flex-direction:column;gap:.38rem;}
+.detail-point{display:flex;align-items:flex-start;gap:.5rem;font-size:.75rem;color:var(--text);line-height:1.5;}
+.detail-point-num{width:18px;height:18px;border-radius:50%;flex-shrink:0;background:var(--green);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:.6rem;display:flex;align-items:center;justify-content:center;margin-top:.05rem;}
 
 /* Dots */
 .deck-dots{display:flex;justify-content:center;gap:.32rem;padding:.1rem 0 .3rem;}
@@ -90,13 +94,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .deck-arrow:disabled{opacity:.3;cursor:not-allowed;}
 .deck-arrow:disabled:hover{background:var(--white);color:var(--navy);border-color:var(--border);}
 @media(min-width:540px){.deck-arrow{display:flex;}}
-
-/* Feature card */
-.feat-card{padding:.9rem 1rem;}
-.feat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;}
-.feat-item{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:.6rem .5rem;display:flex;flex-direction:column;align-items:center;gap:.3rem;text-align:center;}
-.feat-item-icon{font-size:1.35rem;}
-.feat-item-label{font-size:.65rem;font-weight:700;color:var(--navy);line-height:1.3;}
 
 /* ── FORM ── */
 .form-card{background:var(--white);border-radius:18px;box-shadow:0 4px 20px rgba(27,58,92,.1);padding:1.3rem 1.2rem 1.1rem;border:1.5px solid var(--border);}
@@ -228,7 +225,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <span class="hero-tag">Recorded Sessions</span>
     <span class="hero-tag">Study Notes</span>
     <span class="hero-tag">Weekly Quizzes</span>
-    <span class="hero-tag">AI Chat Support</span>
+    <span class="hero-tag">AI Buddy</span>
     <span class="hero-tag">Doubt Clearing</span>
   </div>
 </section>
@@ -429,21 +426,21 @@ const SUPPORT_WA   = '919801907094';
 const TIMER_MINS   = 15;
 
 // ════════════════════════════════════════
-//  DATA — Subjects
+//  DATA — Subjects (improved from File 2)
 // ════════════════════════════════════════
 const SUBJECTS = [
   {
-    type: 'overview',
-    icon: '📚',
+    type: 'grid',
     title: '6 Core Subjects',
-    sub: 'BCA Semester 2 · Complete syllabus',
+    sub: 'BCA Semester 2 · Full Syllabus',
+    icon: '📚',
     items: [
-      'BCA-201: Discrete Mathematics',
-      'BCA-202: Computer Architecture',
-      'BCA-203: Data Structure through C',
-      'BCA-204: System Analysis & Design',
-      'BCA-205: Lab on MS-Office',
-      'BCA-206: Lab on Data Structure',
+      { icon: '📐', code: 'BCA-201', label: 'Discrete Mathematics' },
+      { icon: '🖥️', code: 'BCA-202', label: 'Computer Architecture' },
+      { icon: '🔗', code: 'BCA-203', label: 'Data Structures' },
+      { icon: '📋', code: 'BCA-204', label: 'System Analysis & Design' },
+      { icon: '💼', code: 'BCA-205', label: 'Lab on MS-Office' },
+      { icon: '⚙️', code: 'BCA-206', label: 'Lab on Data Structures' },
     ]
   },
   {
@@ -451,8 +448,8 @@ const SUBJECTS = [
     icon: '📐',
     code: 'BCA-201',
     title: 'Discrete Mathematics',
-    sub: 'Logic & Structures',
-    points: ['Set Theory', 'Relations & Functions', 'Group Theory', 'POSET & Lattice', 'Graph Theory']
+    sub: 'Logic, Sets & Structures',
+    points: ['Set Theory & Logic', 'Relations & Functions', 'Group Theory', 'POSET & Lattice', 'Graph Theory']
   },
   {
     type: 'detail',
@@ -468,7 +465,7 @@ const SUBJECTS = [
     code: 'BCA-203',
     title: 'Data Structures through C',
     sub: 'Arrays to Trees',
-    points: ['Structure & Pointers', 'Array & Linked Lists', 'Stack & Queues', 'Trees & Graphs', 'Searching & Sorting']
+    points: ['Structures & Pointers', 'Arrays & Linked Lists', 'Stack & Queues', 'Trees & Graphs', 'Searching & Sorting']
   },
   {
     type: 'detail',
@@ -476,54 +473,45 @@ const SUBJECTS = [
     code: 'BCA-204',
     title: 'System Analysis & Design',
     sub: 'SDLC & Modelling',
-    points: ['System Analysis & Design', 'SDLC, SRS, ER, DFD', 'Testing', 'Maintenance', 'Requirements']
+    points: ['System Analysis & Design', 'SDLC · SRS · ER · DFD', 'Software Testing', 'System Maintenance', 'Requirements Engineering']
   },
   {
     type: 'detail',
     icon: '💼',
     code: 'BCA-205',
-    title: 'Lab on MS Office',
+    title: 'Lab on MS-Office',
     sub: 'Practical Applications',
-    points: ['MS Word', 'MS PowerPoint', 'MS Excel', 'Copilot (Extras)', 'Google Workspace']
+    points: ['MS Word', 'MS PowerPoint', 'MS Excel', 'Google Workspace', 'Copilot & AI Tools']
   },
   {
     type: 'detail',
     icon: '⚙️',
     code: 'BCA-206',
     title: 'Lab on Data Structures',
-    sub: 'Coding Practicals',
-    points: ['Array & Linked List', 'Stack & Queue Usage', 'DFS, BFS', 'Searching & Sorting', 'Mini Project']
+    sub: 'Coding Practicals in C',
+    points: ['Array & Linked List', 'Stack & Queue Usage', 'DFS & BFS', 'Searching & Sorting', 'Mini Project']
   },
 ];
 
 // ════════════════════════════════════════
-//  DATA — Features
+//  DATA — Features (improved from File 2)
 // ════════════════════════════════════════
 const FEATURES = [
   {
-    type: 'overview',
-    icon: '⭐',
+    type: 'grid',
     title: 'Everything You Need',
-    sub: 'Complete learning support',
+    sub: 'Complete learning toolkit',
+    icon: '⭐',
     items: [
-      'Live Classes', 'Recordings', 'Assignments & HW',
-      'Ebook Notes', 'PYQs', 'Guess Papers',
-      'Coding Practicals', 'Discussion', 'Answer Writing'
-    ]
-  },
-  {
-    type: 'feat-grid',
-    title: 'What You Get',
-    features: [
-      { icon: '🎥', label: 'Live Classes\n2 hours' },
+      { icon: '🎥', label: 'Live Classes' },
       { icon: '📹', label: 'Recordings' },
-      { icon: '📋', label: 'Assignments\n& Homeworks' },
+      { icon: '📋', label: 'Assignments' },
       { icon: '📚', label: 'Ebook Notes' },
       { icon: '🔍', label: 'PYQs' },
       { icon: '💡', label: 'Guess Papers' },
-      { icon: '💻', label: 'Coding\nPracticals' },
-      { icon: '💬', label: 'Discussion\n(English)' },
-      { icon: '✍️', label: 'Answer\nWriting' },
+      { icon: '💻', label: 'Coding Practicals' },
+      { icon: '📊', label: 'Weekly Quizzes' },
+      { icon: '🤖', label: 'AI Buddy' },
     ]
   },
   {
@@ -531,28 +519,42 @@ const FEATURES = [
     icon: '🎥',
     title: 'Live Classes',
     sub: 'Interactive online sessions',
-    points: ['Daily 2-hour live sessions on Google Meet', 'Expert teachers from top Bihar colleges', 'Real-time doubt clearing during class', 'Attendance tracking on your dashboard', 'Missed class? Recording available within 2 hours']
+    points: ['Daily 2-hour sessions on Google Meet', 'Expert teachers from top Bihar colleges', 'Real-time doubt clearing in class', 'Attendance tracking on dashboard', 'Missed class? Recording in 2 hours']
+  },
+  {
+    type: 'detail',
+    icon: '📊',
+    title: 'Weekly Quizzes',
+    sub: 'Test your understanding',
+    points: ['Subject-wise quizzes every week', 'Instant score & feedback', 'Track your progress over time', 'Important MCQs for exam prep', 'Leaderboard & performance report']
+  },
+  {
+    type: 'detail',
+    icon: '🤖',
+    title: 'AI Buddy',
+    sub: 'Your 24/7 study assistant',
+    points: ['Ask doubts anytime, get instant answers', 'Explain concepts in Hindi & English', 'Generate practice questions', 'Summarise chapters on demand', 'Powered by latest AI models']
   },
   {
     type: 'detail',
     icon: '📚',
     title: 'Ebook Notes & PYQs',
     sub: 'Exam-ready material',
-    points: ['Structured PDF notes for every chapter', 'Previous year questions with solutions', 'Short notes for last-minute revision', 'Formula sheets and important definitions', 'All on your College Buddy dashboard']
+    points: ['Structured PDF notes per chapter', 'Previous year questions with solutions', 'Short notes for last-minute revision', 'Formula sheets & key definitions', 'All on your College Buddy dashboard']
   },
   {
     type: 'detail',
     icon: '💻',
     title: 'Coding Practicals',
-    sub: 'Hands-on practice',
-    points: ['Complete lab programs for BCA-205 & 206', 'Step-by-step code explanations', 'MS Office practical demos', 'DSA implementation in C', 'Mini project guidance']
+    sub: 'Hands-on C programming',
+    points: ['Full lab programs for BCA-205 & 206', 'Step-by-step code explanations', 'MS Office practical demos', 'DSA implementation in C', 'Mini project guidance']
   },
   {
     type: 'detail',
     icon: '💡',
     title: 'Guess Papers & Answer Writing',
-    sub: 'Exam preparation',
-    points: ['Curated guess questions for each subject', 'Important topics highlighted', 'Model answers for theory questions', 'Exam writing tips and tricks', 'Last-minute revision shortcuts']
+    sub: 'Exam-specific preparation',
+    points: ['Curated guess questions per subject', 'High-probability topics highlighted', 'Model answers for theory questions', 'Exam writing tips & tricks', 'Last-minute revision shortcuts']
   },
 ];
 
@@ -590,8 +592,58 @@ let paySecondsLeft   = TIMER_MINS * 60;
 })();
 
 // ════════════════════════════════════════
-//  RENDER CAROUSEL
+//  BUILD & RENDER CAROUSEL
 // ════════════════════════════════════════
+function buildCard(item) {
+  const card = document.createElement('div');
+
+  if (item.type === 'grid') {
+    // Grid card (overview)
+    card.className = 'deck-card grid-card';
+    card.innerHTML = `
+      <div class="grid-header">
+        <div class="grid-header-icon">${item.icon}</div>
+        <div>
+          <div class="grid-header-title">${item.title}</div>
+          <div class="grid-header-sub">${item.sub}</div>
+        </div>
+      </div>
+      <div class="grid-body">
+        <div class="${item.items.length <= 6 ? 'subject-grid' : 'feature-grid'}">
+          ${item.items.map(i => `
+            <div class="grid-item">
+              <div class="grid-item-icon">${i.icon}</div>
+              <div>
+                <div class="grid-item-code">${i.code || ''}</div>
+                <div class="grid-item-label">${i.label}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  } else {
+    // Detail card
+    card.className = 'deck-card detail-card';
+    card.innerHTML = `
+      <div class="detail-header">
+        <div class="detail-header-icon">${item.icon}</div>
+        <div class="detail-header-content">
+          <div class="detail-header-code">${item.code}</div>
+          <div class="detail-header-title">${item.title}</div>
+          <div class="detail-header-sub">${item.sub}</div>
+        </div>
+      </div>
+      <div class="detail-divider"></div>
+      <div class="detail-points">
+        ${item.points.map((p,i) => `
+          <div class="detail-point">
+            <div class="detail-point-num">${i+1}</div>
+            <span>${p}</span>
+          </div>`).join('')}
+      </div>`;
+  }
+  return card;
+}
+
 function renderCarousel(name, data) {
   const inner = document.getElementById(name + 'Inner');
   const dots  = document.getElementById(name + 'Dots');
@@ -611,82 +663,12 @@ function renderCarousel(name, data) {
 
   // Touch / mouse drag
   const deck = document.getElementById(name + 'Deck');
-  let startX = 0, isDragging = false;
+  let startX = 0;
   deck.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
   deck.addEventListener('touchend',   e => {
     const dx = e.changedTouches[0].clientX - startX;
     if (Math.abs(dx) > 40) slideCard(name, dx < 0 ? 1 : -1);
   }, { passive: true });
-
-  // Mouse drag for desktop
-  let mouseStartX = 0, isMouseDown = false, mouseMoved = false;
-  deck.addEventListener('mousedown', e => { isMouseDown = true; mouseStartX = e.clientX; mouseMoved = false; deck.style.cursor = 'grabbing'; });
-  document.addEventListener('mouseup', e => {
-    if (!isMouseDown) return;
-    isMouseDown = false;
-    deck.style.cursor = 'grab';
-    const dx = e.clientX - mouseStartX;
-    if (Math.abs(dx) > 40) slideCard(name, dx < 0 ? 1 : -1);
-  });
-  document.addEventListener('mousemove', e => { if (isMouseDown && Math.abs(e.clientX - mouseStartX) > 5) mouseMoved = true; });
-  deck.style.cursor = 'grab';
-}
-
-function buildCard(item) {
-  const card = document.createElement('div');
-
-  if (item.type === 'overview') {
-    card.className = 'deck-card overview';
-    card.innerHTML = `
-      <div class="ov-hdr">
-        <div class="ov-hdr-icon">${item.icon}</div>
-        <div>
-          <div class="ov-hdr-title">${item.title}</div>
-          <div class="ov-hdr-sub">${item.sub}</div>
-        </div>
-      </div>
-      <div class="ov-body">
-        <div class="ov-grid">
-          ${item.items.map(i => `<div class="ov-item"><span class="ov-item-dot"></span>${i}</div>`).join('')}
-        </div>
-      </div>`;
-  } else if (item.type === 'feat-grid') {
-    card.className = 'deck-card';
-    card.innerHTML = `
-      <div class="dt-hdr">
-        <div class="dt-hdr-icon">⭐</div>
-        <div><div class="dt-hdr-title">${item.title}</div></div>
-      </div>
-      <div class="dt-divider"></div>
-      <div class="feat-card">
-        <div class="feat-grid">
-          ${item.features.map(f => `
-            <div class="feat-item">
-              <div class="feat-item-icon">${f.icon}</div>
-              <div class="feat-item-label">${f.label.replace(/\n/g,'<br>')}</div>
-            </div>`).join('')}
-        </div>
-      </div>`;
-  } else {
-    card.className = 'deck-card detail';
-    card.innerHTML = `
-      <div class="dt-hdr">
-        <div class="dt-hdr-icon">${item.icon}</div>
-        <div>
-          ${item.code ? `<div class="dt-hdr-code">${item.code}</div>` : ''}
-          <div class="dt-hdr-title">${item.title}</div>
-          <div class="dt-hdr-sub">${item.sub}</div>
-        </div>
-      </div>
-      <div class="dt-divider"></div>
-      <div class="dt-points">
-        ${item.points.map((p,i) => `
-          <div class="dt-point">
-            <div class="dt-point-num">${i+1}</div>${p}
-          </div>`).join('')}
-      </div>`;
-  }
-  return card;
 }
 
 // ════════════════════════════════════════
@@ -709,8 +691,8 @@ function goToCard(name, idx) {
 
   cs.current = idx;
   const cardEl = inner.children[0];
-const cardFullW = cardEl ? cardEl.getBoundingClientRect().width + 12 : cardW + 12;
-inner.style.transform = `translateX(-${idx * cardFullW}px)`;
+  const cardFullW = cardEl ? cardEl.getBoundingClientRect().width + 12 : cardW + 12;
+  inner.style.transform = `translateX(-${idx * cardFullW}px)`;
   dots.forEach((d, i) => d.classList.toggle('active', i === idx));
   updateArrows(name);
 }
@@ -728,7 +710,7 @@ function startAutoScroll(name) {
   cs.autoTimer = setInterval(() => {
     const nextIdx = (cs.current + 1) % cs.total;
     goToCard(name, nextIdx);
-  }, 3500);
+  }, 4000);
 }
 
 function resetAutoScroll(name) {
