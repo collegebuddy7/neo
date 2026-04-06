@@ -8,7 +8,10 @@
 // const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxWhNlrltWhCdgXIYivMvSY1vbwhQCAiN9cKaHihZNOfYM29_TVilI1lJn9WQMW4ZU/exec'; // ← old file
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyVbZe-9YCRT_JTgnJGPfraAjGQC2Oyzv38M8TDtHbE6rnx1QnfYz0gNCoFj4JgQoK-CQ/exec'; // ← replace
 
+const ENROLLMENT_URL = 'https://script.google.com/macros/s/AKfycbwMu4HyyEM-3-VI0mLuKuigA7G09ws0atSqIoH8HmblCcAUON7Fhwj3PwRmLxuBtwKQ/exec';
+
 const BASE_URL = "https://collegebuddy7.github.io/neo";
+
 // ── SCORING ─────────────────────────────────────────
 const PTS_FAST   = 15;
 const PTS_MEDIUM = 10;
