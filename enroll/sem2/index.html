@@ -34,6 +34,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nav-cta{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border:none;border-radius:99px;padding:.38rem .9rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px rgba(82,168,35,.3);transition:transform .15s;}
 .nav-cta:hover{transform:translateY(-1px);}
 
+.nav-share{background:none;border:none;cursor:pointer;padding:.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--navy);}
+.nav-share svg{width:20px;height:20px;}
+.nav-share:hover{background:rgba(82,168,35,.1);color:var(--green);}
+@media(max-width:540px){.nav-share svg{width:18px;height:18px;}}
+
 /* ── HERO ── */
 .hero{background:linear-gradient(145deg,#0f1f35 0%,#1b3a5c 40%,#0d3a1a 100%);position:relative;overflow:hidden;padding:2.8rem 1.2rem 2.2rem;text-align:center;}
 .hero::before{content:'26';position:absolute;font-family:'Sora',sans-serif;font-weight:900;font-size:18rem;color:rgba(255,255,255,.025);right:-2rem;top:-2rem;line-height:1;pointer-events:none;user-select:none;}
@@ -218,11 +223,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <canvas id="confettiCanvas"></canvas>
 
 <!-- NAV -->
+<!-- Replace this section in your NAV: -->
 <nav class="top-nav">
   <img src="../../images/cbdlogo.png" alt="College Buddy" class="nav-logo"
        onerror="this.outerHTML='<span style=\'font-family:Sora,sans-serif;font-weight:800;color:#1b3a5c;font-size:.95rem\'>College<span style=\'color:#f5a623\'>Buddy</span></span>'"/>
   <span class="nav-badge">Special 26</span>
   <div class="nav-spacer"></div>
+  
+  <!-- ADD THIS NEW BUTTON -->
+  <button class="nav-share" onclick="shareOnWhatsApp()" title="Share on WhatsApp">
+     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.522 5.857L.058 23.5l5.818-1.525A11.939 11.939 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 0 1-5.012-1.369l-.358-.213-3.724.976.994-3.63-.234-.373A9.79 9.79 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+  </button>
+  
   <button class="nav-cta" onclick="scrollToForm()">Enroll Now →</button>
 </nav>
 
@@ -331,8 +343,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <button class="btn-enroll" id="btnEnroll" onclick="handleEnroll()">
       <div class="spin" id="enrollSpin"></div>
       <span id="enrollTxt">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-        Enroll Now — ₹5,999
+        Enroll Now
       </span>
     </button>
   </div>
@@ -782,6 +793,13 @@ function nc_buildCard(d) {
     </div>`;
 }
 
+function shareOnWhatsApp() {
+  const referralCode = state.ref || 'SPECIAL26';
+  const message = `Hey! 👋 Check out College Buddy's \nSpecial 26 batch for BCA Semester 2. \n\nExpert-led classes \nLive session \nComplete study support! \nNotes, PYQs & Guess \n\nJoin now: ${BASE_URL}/enroll/sem2/?ref=${referralCode}`;
+  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  window.open(whatsappURL, '_blank');
+}
+
 // ════════════════════════════════════════
 //  SCROLL TO FORM
 // ════════════════════════════════════════
@@ -991,7 +1009,7 @@ async function postBackend(body) {
 // ════════════════════════════════════════
 function updateEnrollBtn() {
   document.getElementById('enrollTxt').innerHTML =
-    `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg> Enroll Now — ₹${fmt(state.finalPrice)}`;
+    `Enroll Now`;
 }
 
 function setBtnLoad(loading) {
