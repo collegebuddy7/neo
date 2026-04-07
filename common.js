@@ -10,6 +10,8 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyVbZe-9YCRT_JTgnJGPf
 
 const ENROLLMENT_URL = 'https://script.google.com/macros/s/AKfycbwMu4HyyEM-3-VI0mLuKuigA7G09ws0atSqIoH8HmblCcAUON7Fhwj3PwRmLxuBtwKQ/exec';
 
+const ENROLLMENT_URL_4 = 'https://script.google.com/macros/s/AKfycbyo65fCtfPmwCND670fjFAIeMlxIFLncB1WodbLtlaiGCXoOnTxTD0q8qMfPyqGDUcf/exec';
+
 const BASE_URL = "https://collegebuddy7.github.io/neo";
 
 // ── SCORING ─────────────────────────────────────────

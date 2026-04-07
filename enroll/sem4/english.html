@@ -619,7 +619,7 @@ async function applyCoupon() {
   btn.disabled = true; spin.style.display = 'block'; txt.style.display = 'none';
 
   try {
-    const res  = await fetch(ENROLLMENT_URL + '?action=validateCoupon&code=' + encodeURIComponent(code));
+    const res  = await fetch(ENROLLMENT_URL_4 + '?action=validateCoupon&code=' + encodeURIComponent(code));
     const data = await res.json();
     if (data.status === 'valid') {
       appState.coupon = code; appState.couponValid = true;
@@ -795,7 +795,7 @@ function launchConfetti() {
 //  BACKEND
 // ══════════════════════════════════════════
 async function postBackend(body) {
-  const res = await fetch(ENROLLMENT_URL, { method: 'POST', body: JSON.stringify(body) });
+  const res = await fetch(ENROLLMENT_URL_4, { method: 'POST', body: JSON.stringify(body) });
   return res.json();
 }
 
