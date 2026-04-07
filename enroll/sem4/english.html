@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Special 26 — BCA Sem 2 · College Buddy</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../../common.css"/>
+<style>
+:root { --gold2: #e8921a; }
+
+/* ── NAV ── */
+.top-nav{background:var(--white);border-bottom:1.5px solid var(--border);box-shadow:0 2px 12px rgba(27,58,92,.08);position:sticky;top:0;z-index:500;padding:.55rem 1.2rem;display:flex;align-items:center;gap:.75rem;}
+.nav-logo{height:36px;object-fit:contain;}
+.nav-badge{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:'Sora',sans-serif;font-weight:800;font-size:.72rem;padding:.22rem .7rem;border-radius:99px;letter-spacing:.04em;}
+.nav-spacer{flex:1;}
+.nav-cta{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border:none;border-radius:99px;padding:.38rem .9rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px rgba(82,168,35,.3);transition:transform .15s;}
+.nav-cta:hover{transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(145deg,#0f1f35 0%,#1b3a5c 40%,#0d3a1a 100%);position:relative;overflow:hidden;padding:2.8rem 1.2rem 2.2rem;text-align:center;}
+.hero::before{content:'26';position:absolute;font-family:'Sora',sans-serif;font-weight:900;font-size:18rem;color:rgba(255,255,255,.025);right:-2rem;top:-2rem;line-height:1;pointer-events:none;user-select:none;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.4rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.35);border-radius:99px;padding:.28rem .85rem;font-size:.68rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.9rem;}
+.hero-eyebrow svg{width:12px;height:12px;fill:var(--gold);}
+.hero-title{font-family:'Sora',sans-serif;font-weight:900;font-size:clamp(2.2rem,8vw,3.8rem);color:#fff;line-height:1.05;margin-bottom:.5rem;}
+.hero-title em{color:var(--gold);font-style:normal;display:block;font-size:.6em;}
+.hero-sub{color:rgba(255,255,255,.55);font-size:.85rem;max-width:340px;margin:0 auto .5rem;line-height:1.65;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.38rem;justify-content:center;margin-top:1rem;}
+.hero-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);border-radius:99px;padding:.22rem .7rem;font-size:.67rem;font-weight:600;border:1px solid rgba(255,255,255,.12);}
+
+/* ── SECTION ── */
+.section{padding:1.8rem 1.2rem 1rem;max-width:640px;margin:0 auto;}
+.sec-label{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem;}
+.sec-label::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,var(--border),transparent);}
+.divider{height:6px;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.bottom-spacer{height:3rem;}
+.hidden{display:none!important;}
+
+/* ── SUBJECT TILES — 2 col ── */
+.sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
+.sub-tile{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:.75rem .8rem;display:flex;align-items:center;gap:.6rem;cursor:pointer;transition:box-shadow .18s,transform .18s,border-color .18s;box-shadow:0 2px 8px rgba(27,58,92,.07);}
+.sub-tile:hover{box-shadow:0 5px 18px rgba(27,58,92,.14);transform:translateY(-1px);border-color:var(--navy2);}
+.sub-tile:active{transform:translateY(0);}
+.sub-tile-icon{width:36px;height:36px;border-radius:9px;background:rgba(27,58,92,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sub-tile-icon svg{width:18px;height:18px;color:var(--navy);}
+.sub-tile-code{font-family:'Sora',sans-serif;font-weight:700;color:var(--gold2);font-size:.6rem;margin-bottom:.1rem;}
+.sub-tile-name{font-weight:700;color:var(--navy);font-size:.74rem;line-height:1.3;}
+
+/* ── FEATURE TILES — 2 col, 5 rows ── */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
+.feat-tile{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:.72rem .8rem;display:flex;align-items:center;gap:.6rem;cursor:pointer;transition:box-shadow .18s,transform .18s,border-color .18s;box-shadow:0 2px 8px rgba(27,58,92,.07);}
+.feat-tile:hover{box-shadow:0 5px 18px rgba(82,168,35,.15);transform:translateY(-1px);border-color:var(--green);}
+.feat-tile:active{transform:translateY(0);}
+.feat-tile-icon{width:36px;height:36px;border-radius:9px;background:rgba(82,168,35,.09);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.feat-tile-icon svg{width:18px;height:18px;color:var(--green2);}
+.feat-tile-name{font-weight:700;color:var(--navy);font-size:.78rem;line-height:1.3;}
+.feat-tile-hint{font-size:.62rem;color:var(--faint);margin-top:.08rem;}
+
+/* ── MODAL ── */
+.modal-backdrop{position:fixed;inset:0;z-index:9000;background:rgba(15,31,53,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .22s;}
+.modal-backdrop.open{opacity:1;pointer-events:all;}
+.modal{background:var(--white);border-radius:20px;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(15,31,53,.28);transform:translateY(18px) scale(.97);transition:transform .25s cubic-bezier(.34,1.56,.64,1),opacity .22s;opacity:0;overflow:hidden;}
+.modal-backdrop.open .modal{transform:translateY(0) scale(1);opacity:1;}
+
+.modal-hdr{padding:.85rem 1rem .7rem;display:flex;align-items:flex-start;gap:.7rem;}
+.modal-hdr-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.modal-hdr-icon.navy{background:rgba(27,58,92,.09);}
+.modal-hdr-icon.navy svg{color:var(--navy);}
+.modal-hdr-icon.green{background:rgba(82,168,35,.1);}
+.modal-hdr-icon.green svg{color:var(--green2);}
+.modal-hdr-icon svg{width:22px;height:22px;}
+.modal-hdr-code{font-family:'Sora',sans-serif;font-weight:700;color:var(--gold2);font-size:.63rem;background:rgba(245,166,35,.12);padding:.1rem .4rem;border-radius:4px;display:inline-block;margin-bottom:.18rem;}
+.modal-hdr-title{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.95rem;line-height:1.2;}
+.modal-hdr-sub{font-size:.68rem;color:var(--faint);margin-top:.1rem;}
+.modal-close{margin-left:auto;flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--faint);padding:.25rem;border-radius:7px;transition:color .15s,background .15s;line-height:0;}
+.modal-close:hover{color:var(--navy);background:#f1f5f9;}
+.modal-close svg{width:18px;height:18px;}
+
+.modal-divider{height:1px;background:var(--border);margin:0 1rem;}
+
+/* Subject modal: numbered points */
+.modal-points{padding:.75rem 1rem 1rem;display:flex;flex-direction:column;gap:.45rem;}
+.modal-point{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--text);line-height:1.6;}
+.modal-point-num{width:20px;height:20px;border-radius:50%;flex-shrink:0;background:var(--navy);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:.62rem;display:flex;align-items:center;justify-content:center;margin-top:.12rem;}
+.modal-point-num.green{background:var(--green);}
+
+/* Feature modal: paragraph */
+.modal-body{padding:.8rem 1rem 1.1rem;font-size:.82rem;color:var(--muted);line-height:1.75;}
+
+/* ── FORM ── */
+.form-card{background:var(--white);border-radius:18px;box-shadow:0 4px 20px rgba(27,58,92,.1);padding:1.3rem 1.2rem 1.1rem;border:1.5px solid var(--border);}
+.form-field{margin-bottom:.75rem;}
+.form-label{display:block;font-weight:600;font-size:.78rem;color:#334155;margin-bottom:.28rem;}
+.form-req{color:var(--red);}
+.form-input{width:100%;border:2px solid var(--border);border-radius:10px;padding:.6rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--text);background:#f8fafc;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;}
+.form-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(82,168,35,.12);background:var(--white);}
+.form-input.err{border-color:var(--red)!important;}
+.form-err{font-size:.7rem;color:var(--red);margin-top:.2rem;display:none;}
+.coupon-row{display:flex;gap:.5rem;}
+.coupon-row .form-input{flex:1;}
+.btn-apply{border:none;border-radius:10px;padding:.6rem .9rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.75rem;cursor:pointer;white-space:nowrap;flex-shrink:0;background:var(--navy);color:#fff;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.4rem;}
+.btn-apply:hover{background:var(--navy2);}
+.btn-apply:disabled{opacity:.5;cursor:not-allowed;}
+.apply-spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:cspin .7s linear infinite;display:none;flex-shrink:0;}
+
+.price-display{background:linear-gradient(135deg,#f8fafc,#f1f5f9);border:1.5px solid var(--border);border-radius:13px;padding:.9rem 1rem;margin:.7rem 0;display:flex;align-items:center;justify-content:space-between;}
+.price-label{font-size:.68rem;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+.price-amount{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:1.6rem;line-height:1;margin-top:.2rem;}
+.price-amount.discounted{color:var(--green);}
+.price-original{font-size:.75rem;color:var(--faint);text-decoration:line-through;margin-top:.12rem;}
+.price-badge{background:rgba(82,168,35,.12);color:var(--green2);border-radius:99px;padding:.28rem .72rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;border:1px solid rgba(82,168,35,.2);}
+.coupon-success{display:flex;align-items:center;gap:.4rem;background:rgba(82,168,35,.07);border:1px solid rgba(82,168,35,.2);border-radius:9px;padding:.48rem .75rem;font-size:.73rem;font-weight:600;color:var(--green2);margin-bottom:.6rem;}
+.coupon-success svg{width:14px;height:14px;fill:var(--green);flex-shrink:0;}
+
+.btn-enroll{width:100%;border:none;border-radius:13px;padding:1rem;margin-top:.5rem;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 5px 20px rgba(82,168,35,.35);transition:transform .18s,box-shadow .18s;}
+.btn-enroll:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(82,168,35,.4);}
+.btn-enroll:active{transform:translateY(0);}
+.btn-enroll:disabled{opacity:.55;cursor:not-allowed;transform:none!important;}
+.btn-enroll .enroll-spin{width:18px;height:18px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:cspin .7s linear infinite;display:none;}
+@keyframes cspin{to{transform:rotate(360deg);}}
+
+/* ── TRUST STRIP ── */
+.trust-strip{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:.8rem 1.2rem;}
+.trust-item{display:flex;align-items:center;gap:.3rem;font-size:.68rem;font-weight:600;color:var(--muted);}
+.trust-item svg{width:13px;height:13px;fill:var(--green);}
+
+/* ── PAYMENT OVERLAY ── */
+.payment-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;}
+.payment-overlay.open{display:flex;animation:slideIn .3s ease;}
+@keyframes slideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.pay-header{background:var(--white);border-bottom:1.5px solid var(--border);padding:.7rem 1.2rem;display:flex;align-items:center;gap:.7rem;position:sticky;top:0;z-index:10;}
+.pay-back{background:none;border:none;cursor:pointer;color:var(--muted);display:flex;align-items:center;padding:.3rem;border-radius:8px;transition:color .15s;}
+.pay-back:hover{color:var(--navy);}
+.pay-back svg{width:20px;height:20px;}
+.pay-header-title{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.9rem;}
+.pay-header-sub{font-size:.65rem;color:var(--faint);}
+.pay-amount-bar{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:.9rem 1.2rem;display:flex;align-items:center;justify-content:space-between;}
+.pay-amt-label{font-size:.65rem;color:rgba(255,255,255,.55);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+.pay-amt-value{font-family:'Sora',sans-serif;font-weight:800;color:var(--gold);font-size:1.6rem;line-height:1;}
+.pay-amt-course{font-size:.68rem;color:rgba(255,255,255,.45);margin-top:.1rem;}
+.pay-timer-wrap{background:#fffbeb;border:1.5px solid #fde68a;border-radius:12px;margin:1rem 1.2rem .5rem;padding:.7rem 1rem;display:flex;align-items:center;gap:.7rem;}
+.pay-timer-icon{font-size:1.1rem;}
+.pay-timer-label{font-size:.7rem;font-weight:600;color:#92400e;}
+.pay-timer-value{font-family:'Sora',sans-serif;font-weight:800;color:var(--red);font-size:1.35rem;line-height:1;margin-top:.05rem;}
+.pay-timer-wrap.urgent{background:#fef2f2;border-color:#fecaca;}
+.pay-timer-wrap.urgent .pay-timer-label{color:#7f1d1d;}
+.pay-tabs{display:flex;background:#f1f5f9;border-radius:12px;padding:4px;margin:0 1.2rem .5rem;}
+.pay-tab{flex:1;text-align:center;padding:.5rem;border-radius:9px;cursor:pointer;font-family:'Sora',sans-serif;font-weight:700;font-size:.8rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.3rem;user-select:none;}
+.pay-tab svg{width:14px;height:14px;}
+.pay-tab.active{background:var(--white);color:var(--navy);box-shadow:0 2px 8px rgba(27,58,92,.1);}
+.pay-panel{padding:.5rem 1.2rem;display:none;}
+.pay-panel.active{display:block;}
+.qr-card{background:var(--white);border-radius:16px;box-shadow:0 3px 16px rgba(27,58,92,.1);padding:1.1rem;text-align:center;border:1.5px solid var(--border);}
+.qr-title{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:.88rem;margin-bottom:.75rem;}
+.qr-img{width:200px;height:200px;object-fit:contain;border-radius:12px;margin:0 auto .75rem;display:block;border:2px solid var(--border);}
+.qr-note{font-size:.72rem;color:var(--muted);line-height:1.6;}
+.qr-amount-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(82,168,35,.1);color:var(--green2);border-radius:99px;padding:.22rem .7rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;margin-bottom:.55rem;}
+.upi-card{background:var(--white);border-radius:16px;box-shadow:0 3px 16px rgba(27,58,92,.1);padding:1.1rem;border:1.5px solid var(--border);margin-bottom:.6rem;}
+.upi-row{display:flex;align-items:center;gap:.6rem;padding:.55rem 0;border-bottom:1px solid #f8fafc;}
+.upi-row:last-child{border-bottom:none;padding-bottom:0;}
+.upi-row-label{font-size:.72rem;color:var(--faint);flex:1;}
+.upi-row-value{font-weight:700;font-size:.82rem;color:var(--navy);}
+.upi-copy-btn{background:none;border:1.5px solid var(--border);border-radius:7px;padding:.22rem .55rem;font-size:.65rem;font-weight:700;color:var(--navy);cursor:pointer;font-family:'Sora',sans-serif;transition:all .15s;}
+.upi-copy-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.upi-copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green);}
+.upi-steps{background:#f8fafc;border-radius:12px;padding:.75rem .9rem;margin-bottom:.6rem;}
+.upi-steps-title{font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);font-size:.78rem;margin-bottom:.5rem;}
+.upi-step{display:flex;align-items:flex-start;gap:.5rem;font-size:.72rem;color:var(--text);margin-bottom:.35rem;line-height:1.5;}
+.upi-step:last-child{margin-bottom:0;}
+.upi-step-num{width:18px;height:18px;border-radius:50%;flex-shrink:0;background:var(--navy);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:.6rem;display:flex;align-items:center;justify-content:center;margin-top:.05rem;}
+.pay-bottom{position:sticky;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1.5px solid var(--border);padding:.75rem 1.2rem;display:flex;gap:.55rem;}
+.btn-help{flex:1;border:2px solid var(--border);background:var(--white);color:var(--muted);border-radius:12px;padding:.72rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4rem;transition:all .15s;}
+.btn-help:hover{border-color:var(--navy);color:var(--navy);}
+.btn-help svg{width:15px;height:15px;}
+.btn-paid{flex:2;border:none;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border-radius:12px;padding:.72rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4rem;box-shadow:0 4px 14px rgba(82,168,35,.3);transition:all .15s;}
+.btn-paid:hover{transform:translateY(-1px);}
+.btn-paid svg{width:16px;height:16px;}
+
+/* ── CONFETTI ── */
+#confettiCanvas{position:fixed;inset:0;pointer-events:none;z-index:99998;display:none;}
+
+/* ── TOAST ── */
+#toast{position:fixed;bottom:5.5rem;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:.48rem 1.1rem;border-radius:99px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;z-index:99999;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis;}
+</style>
+</head>
+<body>
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- SVG DEFS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+  <defs>
+    <symbol id="ico-book"     viewBox="0 0 24 24"><path fill="currentColor" d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 18H6V4h2v8l2.5-1.5L13 12V4h5v16z"/></symbol>
+    <symbol id="ico-math"     viewBox="0 0 24 24"><path fill="currentColor" d="M18 4H6v2l6 6-6 6v2h12v-2h-8.5l5.5-6-5.5-6H18V4z"/></symbol>
+    <symbol id="ico-cpu"      viewBox="0 0 24 24"><path fill="currentColor" d="M9 2v2H7a2 2 0 0 0-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2h2V9h-2V7a2 2 0 0 0-2-2h-2V3H9V2zm0 4h6v10H9V6zm2 2v6h2V8h-2z"/></symbol>
+    <symbol id="ico-ds"       viewBox="0 0 24 24"><circle cx="4" cy="12" r="2.5" fill="currentColor"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><circle cx="20" cy="12" r="2.5" fill="currentColor"/><line x1="6.5" y1="12" x2="9.5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="14.5" y1="12" x2="17.5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="9.5" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18" y1="14.5" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ico-flow"     viewBox="0 0 24 24"><rect x="8" y="1" width="8" height="5" rx="1" fill="currentColor"/><rect x="1" y="14" width="8" height="5" rx="1" fill="currentColor"/><rect x="15" y="14" width="8" height="5" rx="1" fill="currentColor"/><line x1="12" y1="6" x2="12" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 10 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 10 L19 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ico-apps"     viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor"/></symbol>
+    <symbol id="ico-terminal" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 9l4 3-4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="14" y1="15" x2="18" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ico-video"    viewBox="0 0 24 24"><path fill="currentColor" d="M15 8v8H5V8h10m1-2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4V7a1 1 0 0 0-1-1z"/></symbol>
+    <symbol id="ico-play"     viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M10 8.5l6 3.5-6 3.5V8.5z"/></symbol>
+    <symbol id="ico-clipboard"viewBox="0 0 24 24"><path fill="currentColor" d="M19 3h-4.2A2.99 2.99 0 0 0 12 1a2.99 2.99 0 0 0-2.8 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM19 19H5V5h2v2h10V5h2v14z"/><line x1="8" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ico-search"   viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="ico-bulb"     viewBox="0 0 24 24"><path fill="currentColor" d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></symbol>
+    <symbol id="ico-code"     viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="ico-chat"     viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></symbol>
+    <symbol id="ico-pen"      viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></symbol>
+    <symbol id="ico-quiz"     viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14v14z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 11l3 3 5-5"/><line x1="8" y1="16" x2="12" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ico-ai"       viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="13" r="1.5" fill="currentColor"/><circle cx="15" cy="13" r="1.5" fill="currentColor"/><path d="M9 16.5c.83.64 2.17 1 3 1 .83 0 2.17-.36 3-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><line x1="12" y1="4" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="3" r="1" fill="currentColor"/><line x1="4" y1="10" x2="2" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <img src="../../images/cbdlogo.png" alt="College Buddy" class="nav-logo"
+       onerror="this.outerHTML='<span style=\'font-family:Sora,sans-serif;font-weight:800;color:#1b3a5c;font-size:.95rem\'>College<span style=\'color:#f5a623\'>Buddy</span></span>'"/>
+  <span class="nav-badge">Special 26</span>
+  <div class="nav-spacer"></div>
+  <button class="nav-cta" onclick="scrollToForm()">Enroll Now →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    BCA Semester 2 · Bihar Universities
+  </div>
+  <h1 class="hero-title">Special <em>26</em></h1>
+  <p class="hero-sub">Master your 2nd semester with expert-led classes, weekly quizzes, and full study support.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Live Classes</span>
+    <span class="hero-tag">Recorded Sessions</span>
+    <span class="hero-tag">Study Notes</span>
+    <span class="hero-tag">Weekly Quizzes</span>
+    <span class="hero-tag">AI Buddy</span>
+    <span class="hero-tag">Doubt Clearing</span>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<div class="section">
+  <div class="sec-label">Subjects Covered</div>
+  <div class="sub-grid" id="subGrid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<div class="section">
+  <div class="sec-label">Batch Features</div>
+  <div class="feat-grid" id="featGrid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ENROLL FORM -->
+<div class="section" id="enrollSection">
+  <div class="sec-label">Enroll Now</div>
+  <div class="form-card">
+    <div class="form-field">
+      <label class="form-label">Full Name <span class="form-req">*</span></label>
+      <input type="text" id="fName" class="form-input" placeholder="Apna pura naam" autocomplete="name"/>
+      <div class="form-err" id="eName">Naam required hai.</div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">Email <span class="form-req">*</span></label>
+      <input type="email" id="fEmail" class="form-input" placeholder="example@gmail.com" inputmode="email"/>
+      <div class="form-err" id="eEmail">Valid email chahiye.</div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">Mobile Number <span class="form-req">*</span></label>
+      <input type="tel" id="fPhone" class="form-input" placeholder="10-digit number" maxlength="10" inputmode="numeric"/>
+      <div class="form-err" id="ePhone">Valid 10-digit number chahiye.</div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">Coupon / Referral Code <span style="color:var(--faint);font-weight:400;">(optional)</span></label>
+      <div class="coupon-row">
+        <input type="text" id="fCoupon" class="form-input" placeholder="Enter code" style="text-transform:uppercase;"/>
+        <button class="btn-apply" id="btnApply" onclick="applyCoupon()">
+          <div class="apply-spin" id="applySpin"></div>
+          <span id="applyTxt">Apply</span>
+        </button>
+      </div>
+      <div class="form-err" id="eCoupon"></div>
+    </div>
+    <div class="coupon-success hidden" id="couponSuccess">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      <span id="couponMsg">Coupon applied!</span>
+    </div>
+    <div class="price-display">
+      <div>
+        <div class="price-label">Course Fee</div>
+        <div class="price-amount" id="priceDisplay">₹5,999</div>
+        <div class="price-original hidden" id="priceOriginal">₹5,999</div>
+      </div>
+      <div class="price-badge hidden" id="priceBadge">₹3,000 OFF</div>
+    </div>
+    <button class="btn-enroll" id="btnEnroll" onclick="handleEnroll()">
+      <div class="enroll-spin" id="enrollSpin"></div>
+      <span id="enrollTxt">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Enroll Now — ₹5,999
+      </span>
+    </button>
+  </div>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Secure Payment</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Instant Access</div>
+  <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Bihar Universities</div>
+</div>
+<div class="bottom-spacer"></div>
+
+<!-- PAYMENT OVERLAY -->
+<div class="payment-overlay" id="paymentOverlay">
+  <div class="pay-header">
+    <button class="pay-back" onclick="closePayment()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <div>
+      <div class="pay-header-title">Complete Payment</div>
+      <div class="pay-header-sub">Special 26 · BCA Semester 2</div>
+    </div>
+  </div>
+  <div class="pay-amount-bar">
+    <div>
+      <div class="pay-amt-label">Amount to Pay</div>
+      <div class="pay-amt-value" id="payAmtValue">₹5,999</div>
+      <div class="pay-amt-course">BCA Semester 2 · Special 26</div>
+    </div>
+  </div>
+  <div class="pay-timer-wrap" id="payTimerWrap">
+    <div class="pay-timer-icon">⏱️</div>
+    <div>
+      <div class="pay-timer-label">COMPLETE PAYMENT WITHIN</div>
+      <div class="pay-timer-value" id="payTimerDisplay">15:00</div>
+    </div>
+  </div>
+  <div class="pay-tabs">
+    <div class="pay-tab active" id="tabQR" onclick="switchPayTab('qr')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM15 19h2v2h-2zM13 19h2v2h-2z"/></svg>
+      Scan QR
+    </div>
+    <div class="pay-tab" id="tabUPI" onclick="switchPayTab('upi')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+      UPI Transfer
+    </div>
+  </div>
+  <div class="pay-panel active" id="panelQR">
+    <div class="qr-card">
+      <div class="qr-title">Scan to Pay</div>
+      <div class="qr-amount-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span id="qrAmtBadge">Pay ₹5,999</span>
+      </div>
+      <img id="qrImage" src="qr5999.png" alt="Scan to Pay" class="qr-img" onerror="this.style.background='#f1f5f9';"/>
+      <p class="qr-note">Open any UPI app (PhonePe, GPay, Paytm)<br>Scan this QR code and pay the exact amount.<br><strong>Screenshot lena mat bhulo!</strong></p>
+    </div>
+  </div>
+  <div class="pay-panel" id="panelUPI">
+    <div class="upi-card">
+      <div class="upi-row">
+        <span class="upi-row-label">UPI ID</span>
+        <span class="upi-row-value">9801907094@okbizaxis</span>
+        <button class="upi-copy-btn" id="btnCopyUPI" onclick="copyUPI()">Copy</button>
+      </div>
+      <div class="upi-row">
+        <span class="upi-row-label">Name</span>
+        <span class="upi-row-value">Ankit Kumar</span>
+      </div>
+      <div class="upi-row">
+        <span class="upi-row-label">Amount</span>
+        <span class="upi-row-value" id="upiAmtRow" style="color:var(--green);font-weight:800;">₹5,999</span>
+      </div>
+    </div>
+    <div class="upi-steps">
+      <div class="upi-steps-title">How to Pay</div>
+      <div class="upi-step"><div class="upi-step-num">1</div>PhonePe / GPay / Paytm / any UPI app open karo</div>
+      <div class="upi-step"><div class="upi-step-num">2</div>UPI ID: <strong>9801907094@okbizaxis</strong> enter karo</div>
+      <div class="upi-step"><div class="upi-step-num">3</div>Exact amount enter karo (<span id="upiStepAmt">₹5,999</span>)</div>
+      <div class="upi-step"><div class="upi-step-num">4</div>Payment karo aur screenshot lo</div>
+      <div class="upi-step"><div class="upi-step-num">5</div>Neeche "Payment Completed" button dabao</div>
+    </div>
+  </div>
+  <div style="flex:1;min-height:1rem;"></div>
+  <div class="pay-bottom">
+    <button class="btn-help" onclick="needHelp()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.522 5.857L.058 23.5l5.818-1.525A11.939 11.939 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 0 1-5.012-1.369l-.358-.213-3.724.976.994-3.63-.234-.373A9.79 9.79 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+      Need Help?
+    </button>
+    <button class="btn-paid" onclick="paymentCompleted()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      Payment Completed
+    </button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModalOnBackdrop(event)">
+  <div class="modal" id="modal">
+    <div class="modal-hdr">
+      <div class="modal-hdr-icon" id="modalIcon">
+        <svg viewBox="0 0 24 24"><use id="modalIconUse" href="#ico-book"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div class="modal-hdr-code hidden" id="modalCode"></div>
+        <div class="modal-hdr-title" id="modalTitle"></div>
+        <div class="modal-hdr-sub" id="modalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-divider"></div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="../../common.js"></script>
+<script>
+'use strict';
+
+// ══════════════════════════════════════════
+//  CONFIG
+// ══════════════════════════════════════════
+const PRICE_FULL   = 5999;
+const PRICE_COUPON = 2999;
+const SUPPORT_WA   = '919801907094';
+const TIMER_MINS   = 5;
+
+// ══════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════
+const SUBJECTS = [
+  {
+    icon: 'ico-math', code: 'BCA-201', label: 'Discrete Mathematics', sub: 'Logic & Structures',
+    points: ['Set Theory & Logic — foundations of mathematical reasoning', 'Relations & Functions — mappings, equivalence, partial orders', 'Group Theory — algebraic structures, subgroups, cosets', 'POSET & Lattice — ordered sets and lattice diagrams', 'Graph Theory — paths, trees, Euler & Hamiltonian graphs']
+  },
+  {
+    icon: 'ico-cpu', code: 'BCA-202', label: 'Computer Architecture', sub: 'Hardware & Systems',
+    points: ['Number System — binary, octal, hex conversions & arithmetic', 'Boolean Algebra — laws, simplification, K-map', 'Digital Circuits — gates, flip-flops, registers, counters', 'Memory Hierarchy — cache, RAM, ROM, virtual memory', 'I/O Interfaces — buses, interrupts, DMA, peripheral devices']
+  },
+  {
+    icon: 'ico-ds', code: 'BCA-203', label: 'Data Structures through C', sub: 'Arrays to Trees',
+    points: ['Structures & Pointers — dynamic memory, pointer arithmetic', 'Arrays & Linked Lists — singly, doubly, circular lists', 'Stack & Queues — LIFO/FIFO, applications, expressions', 'Trees & Graphs — BST, AVL, BFS, DFS traversals', 'Searching & Sorting — bubble, merge, quick, binary search']
+  },
+  {
+    icon: 'ico-flow', code: 'BCA-204', label: 'System Analysis & Design', sub: 'SDLC & Modelling',
+    points: ['System Analysis — feasibility, requirements gathering', 'SDLC Models — waterfall, spiral, agile methodologies', 'SRS, ER & DFD — documentation and diagramming', 'Software Testing — unit, integration, system testing', 'System Maintenance — types, change management']
+  },
+  {
+    icon: 'ico-apps', code: 'BCA-205', label: 'Lab on MS-Office', sub: 'Practical Applications',
+    points: ['MS Word — formatting, mail merge, tables, styles', 'MS PowerPoint — slides, animations, transitions', 'MS Excel — formulas, charts, pivot tables, VLOOKUP', 'Google Workspace — Docs, Sheets, Slides overview', 'Copilot & AI Tools — productivity with AI assistance']
+  },
+  {
+    icon: 'ico-terminal', code: 'BCA-206', label: 'Lab on Data Structures', sub: 'Coding Practicals in C',
+    points: ['Array & Linked List — implementation programs in C', 'Stack & Queue — push/pop, enqueue/dequeue with code', 'DFS & BFS — graph traversal programs', 'Searching & Sorting — implementation of all major algorithms', 'Mini Project — end-to-end DSA problem using C']
+  },
+];
+
+const FEATURES = [
+  {
+    icon: 'ico-video', label: 'Live Classes', hint: '2 hrs daily',
+    desc: 'Attend daily 2-hour live sessions on Google Meet with experienced teachers from top Bihar colleges. Ask questions in real time and get doubts resolved on the spot. Missed a class? No problem — recordings are available within 2 hours on your dashboard.'
+  },
+  {
+    icon: 'ico-play', label: 'Recordings', hint: 'Watch anytime',
+    desc: 'Every live session is recorded and uploaded to your College Buddy dashboard within 2 hours. Rewatch lectures at your own pace, pause and replay difficult concepts, and never miss a topic even on days you cannot attend live.'
+  },
+  {
+    icon: 'ico-clipboard', label: 'Assignments', hint: 'Practice work',
+    desc: 'Receive weekly subject-wise assignments and homework that reinforce what you learn in class. Assignments are designed to build exam writing habits and deepen your understanding. Submit online and get feedback from teachers.'
+  },
+  {
+    icon: 'ico-book', label: 'Ebook Notes', hint: 'PDF ready',
+    desc: 'Get structured PDF notes for every chapter of all 6 subjects. Notes include definitions, diagrams, examples, and formula sheets — designed specifically for Bihar university exam patterns. Perfect for quick revision before exams.'
+  },
+  {
+    icon: 'ico-search', label: 'PYQs', hint: 'Past papers',
+    desc: 'Access a comprehensive bank of previous year questions (PYQs) with detailed solutions for all subjects. Understand the exam pattern, identify important topics, and practice answering in the correct format to score maximum marks.'
+  },
+  {
+    icon: 'ico-bulb', label: 'Guess Papers', hint: 'Exam focused',
+    desc: 'Before each exam, receive curated guess papers highlighting the most likely questions based on recent patterns and syllabus weightage. Includes model answers and concise writing tips to help you present answers effectively.'
+  },
+  {
+    icon: 'ico-code', label: 'Coding Practicals', hint: 'Lab programs',
+    desc: 'Get complete, well-commented lab programs for BCA-205 (MS Office) and BCA-206 (Data Structures in C). Each program is explained step by step. Includes a mini project and MS Office practical demos to ace your lab exams.'
+  },
+  {
+    icon: 'ico-quiz', label: 'Weekly Quizzes', hint: 'Track progress',
+    desc: 'Take subject-wise quizzes every week to test how well you understood the content. Get instant scores, correct answers, and a performance report. Track your improvement over time and see where you need to focus more.'
+  },
+  {
+    icon: 'ico-ai', label: 'AI Buddy', hint: '24/7 support',
+    desc: 'Your personal AI study assistant available 24/7. Ask any doubt in Hindi or English and get instant, clear explanations. Generate practice questions, get chapter summaries on demand, and study smarter with the help of latest AI models.'
+  },
+  {
+    icon: 'ico-chat', label: 'Discussion', hint: 'Peer learning',
+    desc: 'Join a dedicated discussion group where students, teachers, and mentors interact in English and Hindi. Share notes, ask questions, discuss topics, and learn from peers. A collaborative space designed for BCA Sem 2 students.'
+  },
+];
+
+// ══════════════════════════════════════════
+//  APP STATE
+// ══════════════════════════════════════════
+const appState = {
+  name: '', email: '', phone: '', ref: '',
+  coupon: '', finalPrice: PRICE_FULL,
+  couponValid: false, enrolled: false,
+  startedAt: Date.now(),
+};
+let payTimerInterval = null;
+let paySecondsLeft   = TIMER_MINS * 60;
+
+// ══════════════════════════════════════════
+//  RENDER TILES
+// ══════════════════════════════════════════
+function renderSubjects() {
+  const grid = document.getElementById('subGrid');
+  grid.innerHTML = SUBJECTS.map((s, i) => `
+    <div class="sub-tile" onclick="openSubModal(${i})">
+      <div class="sub-tile-icon">
+        <svg viewBox="0 0 24 24"><use href="#${s.icon}"/></svg>
+      </div>
+      <div>
+        <div class="sub-tile-code">${s.code}</div>
+        <div class="sub-tile-name">${s.label}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderFeatures() {
+  const grid = document.getElementById('featGrid');
+  grid.innerHTML = FEATURES.map((f, i) => `
+    <div class="feat-tile" onclick="openFeatModal(${i})">
+      <div class="feat-tile-icon">
+        <svg viewBox="0 0 24 24"><use href="#${f.icon}"/></svg>
+      </div>
+      <div>
+        <div class="feat-tile-name">${f.label}</div>
+        <div class="feat-tile-hint">${f.hint}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════
+function openSubModal(i) {
+  const s = SUBJECTS[i];
+  document.getElementById('modalIconUse').setAttribute('href', '#' + s.icon);
+  document.getElementById('modalIcon').className = 'modal-hdr-icon navy';
+  document.getElementById('modalCode').textContent = s.code;
+  document.getElementById('modalCode').classList.remove('hidden');
+  document.getElementById('modalTitle').textContent = s.label;
+  document.getElementById('modalSub').textContent   = s.sub;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-points">
+      ${s.points.map((p, idx) => `
+        <div class="modal-point">
+          <div class="modal-point-num">${idx + 1}</div>
+          <span>${p}</span>
+        </div>`).join('')}
+    </div>`;
+  openModal();
+}
+
+function openFeatModal(i) {
+  const f = FEATURES[i];
+  document.getElementById('modalIconUse').setAttribute('href', '#' + f.icon);
+  document.getElementById('modalIcon').className = 'modal-hdr-icon green';
+  document.getElementById('modalCode').classList.add('hidden');
+  document.getElementById('modalTitle').textContent = f.label;
+  document.getElementById('modalSub').textContent   = f.hint;
+  document.getElementById('modalContent').innerHTML = `<div class="modal-body">${f.desc}</div>`;
+  openModal();
+}
+
+function openModal() {
+  document.getElementById('modalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBackdrop(e) {
+  if (e.target === document.getElementById('modalBackdrop')) closeModal();
+}
+
+// close modal on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ══════════════════════════════════════════
+//  SCROLL TO FORM
+// ══════════════════════════════════════════
+function scrollToForm() {
+  document.getElementById('enrollSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => document.getElementById('fName').focus(), 600);
+}
+
+// ══════════════════════════════════════════
+//  COUPON
+// ══════════════════════════════════════════
+async function applyCoupon() {
+  const code = document.getElementById('fCoupon').value.trim().toUpperCase();
+  if (!code) { showFormErr('eCoupon', 'Code enter karo.'); return; }
+  clearFormErr('eCoupon');
+
+  const btn  = document.getElementById('btnApply');
+  const spin = document.getElementById('applySpin');
+  const txt  = document.getElementById('applyTxt');
+  btn.disabled = true; spin.style.display = 'block'; txt.style.display = 'none';
+
+  try {
+    const res  = await fetch(ENROLLMENT_URL + '?action=validateCoupon&code=' + encodeURIComponent(code));
+    const data = await res.json();
+    if (data.status === 'valid') {
+      appState.coupon = code; appState.couponValid = true;
+      appState.finalPrice = data.finalPrice || PRICE_COUPON;
+      document.getElementById('priceDisplay').textContent  = '₹' + fmt(appState.finalPrice);
+      document.getElementById('priceDisplay').classList.add('discounted');
+      document.getElementById('priceOriginal').textContent = '₹' + fmt(PRICE_FULL);
+      document.getElementById('priceOriginal').classList.remove('hidden');
+      document.getElementById('priceBadge').textContent    = '₹' + fmt(PRICE_FULL - appState.finalPrice) + ' OFF';
+      document.getElementById('priceBadge').classList.remove('hidden');
+      document.getElementById('couponMsg').textContent     = '🎉 Coupon valid! ₹' + fmt(data.discount) + ' discount' + (data.referrerName ? ' — referred by ' + data.referrerName : '');
+      document.getElementById('couponSuccess').classList.remove('hidden');
+      updateEnrollBtn();
+      showToast('Coupon applied! ₹' + fmt(data.discount) + ' off 🎉', 'success');
+      launchConfetti();
+      if (appState.enrolled && appState.phone)
+        postBackend({ action:'updateCoupon', mobile:appState.phone, coupon:code, finalPrice:appState.finalPrice, timeSpent:getTimeSpent() }).catch(()=>{});
+    } else {
+      showFormErr('eCoupon', data.message || 'Invalid coupon code.');
+      showToast(data.message || 'Invalid coupon.', 'error');
+    }
+  } catch(_) { showFormErr('eCoupon', 'Network error. Try again.'); }
+
+  btn.disabled = false; spin.style.display = 'none'; txt.style.display = 'block';
+}
+
+// ══════════════════════════════════════════
+//  ENROLL
+// ══════════════════════════════════════════
+async function handleEnroll() {
+  const name  = document.getElementById('fName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  let ok = true;
+
+  if (!name)                                      { showFormErr('eName',  'Naam required hai.');            ok = false; } else clearFormErr('eName');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showFormErr('eEmail', 'Valid email chahiye.');          ok = false; } else clearFormErr('eEmail');
+  if (!/^\d{10}$/.test(phone))                    { showFormErr('ePhone', 'Valid 10-digit number chahiye.'); ok = false; } else clearFormErr('ePhone');
+  if (!ok) return;
+
+  appState.name = name; appState.email = email; appState.phone = phone;
+  if (!appState.ref) appState.ref = document.getElementById('fCoupon').value.trim();
+
+  const cbUser = typeof getUser !== 'undefined' ? getUser() : null;
+  setBtnLoad(true);
+
+  postBackend({
+    action: 'saveEnrollment', name, email, mobile: phone,
+    ref: appState.ref || '',
+    registered: cbUser ? 'Yes' : 'No',
+    timeSpent: getTimeSpent(),
+  }).then(() => {
+    appState.enrolled = true;
+    if (appState.couponValid && appState.coupon)
+      postBackend({ action:'updateCoupon', mobile:phone, coupon:appState.coupon, finalPrice:appState.finalPrice, timeSpent:getTimeSpent() }).catch(()=>{});
+  }).catch(() => {});
+
+  setBtnLoad(false);
+  openPayment();
+}
+
+// ══════════════════════════════════════════
+//  PAYMENT
+// ══════════════════════════════════════════
+function openPayment() {
+  const amt = appState.finalPrice;
+  document.getElementById('payAmtValue').textContent = '₹' + fmt(amt);
+  document.getElementById('qrAmtBadge').textContent  = 'Pay ₹' + fmt(amt);
+  document.getElementById('upiAmtRow').textContent   = '₹' + fmt(amt);
+  document.getElementById('upiStepAmt').textContent  = '₹' + fmt(amt);
+  document.getElementById('qrImage').src = amt <= PRICE_COUPON ? 'qr2999.png' : 'qr5999.png';
+  document.getElementById('paymentOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  startPayTimer();
+}
+
+function closePayment() {
+  document.getElementById('paymentOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  clearInterval(payTimerInterval);
+  payTimerInterval = null;
+  if (appState.phone) postBackend({ action:'updateTimeSpent', mobile:appState.phone, timeSpent:getTimeSpent() }).catch(()=>{});
+}
+
+function switchPayTab(tab) {
+  document.getElementById('tabQR').classList.toggle('active',  tab === 'qr');
+  document.getElementById('tabUPI').classList.toggle('active', tab === 'upi');
+  document.getElementById('panelQR').classList.toggle('active',  tab === 'qr');
+  document.getElementById('panelUPI').classList.toggle('active', tab === 'upi');
+}
+
+function startPayTimer() {
+  paySecondsLeft = TIMER_MINS * 60;
+  clearInterval(payTimerInterval);
+  updateTimerDisplay();
+  payTimerInterval = setInterval(() => {
+    paySecondsLeft--;
+    updateTimerDisplay();
+    if (paySecondsLeft <= 0) clearInterval(payTimerInterval);
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(paySecondsLeft / 60), s = paySecondsLeft % 60;
+  document.getElementById('payTimerDisplay').textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  document.getElementById('payTimerWrap').classList.toggle('urgent', paySecondsLeft < 120);
+}
+
+function copyUPI() {
+  navigator.clipboard.writeText('9801907094@okbizaxis').then(() => {
+    const btn = document.getElementById('btnCopyUPI');
+    btn.textContent = 'Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    showToast('UPI ID copied!', 'success');
+  });
+}
+
+function needHelp() {
+  const u = appState;
+  const msg = `Hi, I need help with payment for College Buddy Special 26 (BCA Sem 2).\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount: ₹${fmt(u.finalPrice)}\n\nPlease help me complete the payment.`;
+  if (appState.phone) postBackend({ action:'updatePayment', mobile:appState.phone, status:'Help Requested', method:'', notes:'User asked for help', timeSpent:getTimeSpent() }).catch(()=>{});
+  window.open('https://wa.me/' + SUPPORT_WA + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function paymentCompleted() {
+  const u = appState;
+  const method = document.getElementById('tabUPI').classList.contains('active') ? 'UPI Transfer' : 'QR Scan';
+  const nowStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  const msg = `Hi! I have completed the payment for College Buddy Special 26 (BCA Sem 2). Please activate my course.\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount Paid: ₹${fmt(u.finalPrice)}\nPayment Method: ${method}\nPaid on: ${nowStr}\n\nKindly confirm and activate my access. Thank you!`;
+  if (appState.phone) postBackend({ action:'updatePayment', mobile:appState.phone, status:'Completed', method, notes:'User confirmed payment', timeSpent:getTimeSpent() }).catch(()=>{});
+  launchConfetti();
+  window.open('https://wa.me/' + SUPPORT_WA + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// ══════════════════════════════════════════
+//  CONFETTI
+// ══════════════════════════════════════════
+function launchConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx    = canvas.getContext('2d');
+  canvas.style.display = 'block';
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ['#f5a623','#52a823','#1b3a5c','#ef4444','#ffffff','#ffd700','#3d8019'];
+  const pieces = Array.from({ length: 140 }, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height - canvas.height,
+    r: Math.random() * 7 + 3, d: Math.random() * 140 + 10,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    tilt: 0, tiltAngle: 0, tiltSpeed: Math.random() * 0.1 + 0.05,
+    speed: Math.random() * 3 + 2, shape: Math.random() > 0.5 ? 'rect' : 'circle',
+  }));
+  let angle = 0, frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    angle += 0.01;
+    pieces.forEach(p => {
+      p.tiltAngle += p.tiltSpeed; p.y += p.speed; p.x += Math.sin(angle + p.d) * 1.2;
+      p.tilt = Math.sin(p.tiltAngle) * 12;
+      ctx.beginPath(); ctx.fillStyle = p.color;
+      if (p.shape === 'circle') { ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); }
+      else { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.tilt * Math.PI / 180); ctx.rect(-p.r, -p.r / 2, p.r * 2, p.r); ctx.restore(); }
+      ctx.fill();
+      if (p.y > canvas.height) { p.y = -10; p.x = Math.random() * canvas.width; }
+    });
+    frame++;
+    if (frame < 220) requestAnimationFrame(draw);
+    else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.display = 'none'; }
+  }
+  draw();
+}
+
+// ══════════════════════════════════════════
+//  BACKEND
+// ══════════════════════════════════════════
+async function postBackend(body) {
+  const res = await fetch(ENROLLMENT_URL, { method: 'POST', body: JSON.stringify(body) });
+  return res.json();
+}
+
+// ══════════════════════════════════════════
+//  UTILS
+// ══════════════════════════════════════════
+function updateEnrollBtn() {
+  document.getElementById('enrollTxt').innerHTML =
+    `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>Enroll Now — ₹${fmt(appState.finalPrice)}`;
+}
+
+function setBtnLoad(loading) {
+  const btn  = document.getElementById('btnEnroll');
+  const spin = document.getElementById('enrollSpin');
+  const txt  = document.getElementById('enrollTxt');
+  btn.disabled = loading; spin.style.display = loading ? 'block' : 'none'; txt.style.display = loading ? 'none' : 'inline';
+}
+
+function getTimeSpent() { return Math.round((Date.now() - appState.startedAt) / 1000); }
+function fmt(n) { return Number(n).toLocaleString('en-IN'); }
+
+function showFormErr(id, msg) { const el = document.getElementById(id); if (el) { el.textContent = msg; el.style.display = 'block'; } }
+function clearFormErr(id)     { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
+
+// ══════════════════════════════════════════
+//  BOOT
+// ══════════════════════════════════════════
+(function boot() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('name'))   { document.getElementById('fName').value   = p.get('name');                    appState.name  = p.get('name'); }
+  if (p.get('email'))  { document.getElementById('fEmail').value  = p.get('email');                   appState.email = p.get('email'); }
+  if (p.get('mobile')) { document.getElementById('fPhone').value  = p.get('mobile');                  appState.phone = p.get('mobile'); }
+  if (p.get('ref'))    { document.getElementById('fCoupon').value = p.get('ref').toUpperCase();        appState.ref   = p.get('ref'); }
+
+  renderSubjects();
+  renderFeatures();
+})();
+</script>
+</body>
+</html>
