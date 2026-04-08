@@ -8,4 +8,4 @@ What is the universal set?,An empty set,A set containing all elements under cons
 What is the complement of a set A?,Elements in A,Elements not in A,Elements in A and B,Empty set,2
 What is a power set of {1,2}?,{1},{2},{},{},{},{1},{2},{1,2},Only {1,2},3
 What does |A| denote?,Sum of elements,Number of elements in set A,Union of sets,Intersection,2
-What is A ∩ B if A={1,2} and B={2,3}?,{1,2,3},{1},{2},{3},3
+"What is A ∩ B if A={1,2} and B={2,3}?","{1,2,3}",{1},{2},{3},3
