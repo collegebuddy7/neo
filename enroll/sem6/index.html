@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Special 26 — BCA Sem 2 · College Buddy</title>
+<title>Project in 40 Days — BCA Sem 6 · College Buddy</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -33,22 +33,26 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nav-spacer{flex:1;}
 .nav-cta{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border:none;border-radius:99px;padding:.38rem .9rem;font-family:'Sora',sans-serif;font-weight:700;font-size:.72rem;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px rgba(82,168,35,.3);transition:transform .15s;}
 .nav-cta:hover{transform:translateY(-1px);}
-
 .nav-share{background:none;border:none;cursor:pointer;padding:.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--navy);}
 .nav-share svg{width:20px;height:20px;}
 .nav-share:hover{background:rgba(82,168,35,.1);color:var(--green);}
 @media(max-width:540px){.nav-share svg{width:18px;height:18px;}}
 
 /* ── HERO ── */
-.hero{background:linear-gradient(145deg,#0f1f35 0%,#1b3a5c 40%,#0d3a1a 100%);position:relative;overflow:hidden;padding:2.8rem 1.2rem 2.2rem;text-align:center;}
-.hero::before{content:'26';position:absolute;font-family:'Sora',sans-serif;font-weight:900;font-size:18rem;color:rgba(255,255,255,.025);right:-2rem;top:-2rem;line-height:1;pointer-events:none;user-select:none;}
+.hero{background:linear-gradient(145deg,#0d1f0f 0%,#1a3a1a 35%,#1b3a5c 100%);position:relative;overflow:hidden;padding:2.8rem 1.2rem 2.2rem;text-align:center;}
+.hero::before{content:'40';position:absolute;font-family:'Sora',sans-serif;font-weight:900;font-size:18rem;color:rgba(255,255,255,.025);right:-2rem;top:-2rem;line-height:1;pointer-events:none;user-select:none;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.4rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.35);border-radius:99px;padding:.28rem .85rem;font-size:.68rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.9rem;}
 .hero-eyebrow svg{width:12px;height:12px;fill:var(--gold);}
-.hero-title{font-family:'Sora',sans-serif;font-weight:900;font-size:clamp(2.2rem,8vw,3.8rem);color:#fff;line-height:1.05;margin-bottom:.5rem;}
-.hero-title em{color:var(--gold);font-style:normal;display:block;font-size:.6em;}
-.hero-sub{color:rgba(255,255,255,.55);font-size:.85rem;max-width:340px;margin:0 auto .5rem;line-height:1.65;}
+.hero-title{font-family:'Sora',sans-serif;font-weight:900;font-size:clamp(2rem,8vw,3.5rem);color:#fff;line-height:1.05;margin-bottom:.5rem;}
+.hero-title em{color:var(--gold);font-style:normal;display:block;font-size:.55em;}
+.hero-sub{color:rgba(255,255,255,.55);font-size:.85rem;max-width:360px;margin:0 auto .5rem;line-height:1.65;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.38rem;justify-content:center;margin-top:1rem;}
 .hero-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);border-radius:99px;padding:.22rem .7rem;font-size:.67rem;font-weight:600;border:1px solid rgba(255,255,255,.12);}
+
+/* ── COUNTDOWN BANNER ── */
+.days-banner{background:linear-gradient(135deg,var(--gold),var(--gold2));padding:.55rem 1.2rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:.6rem;}
+.days-banner-text{font-family:'Sora',sans-serif;font-weight:800;font-size:.8rem;color:var(--navy);}
+.days-pill{background:var(--navy);color:var(--gold);border-radius:99px;padding:.18rem .6rem;font-family:'Sora',sans-serif;font-weight:900;font-size:.78rem;}
 
 /* ── SECTION ── */
 .section{padding:1.8rem 1.2rem 1rem;max-width:640px;margin:0 auto;}
@@ -71,14 +75,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nc-hdr-title{font-family:'Sora',sans-serif;font-weight:800;color:#fff;font-size:.88rem;}
 .nc-hdr-sub{font-size:.63rem;color:rgba(255,255,255,.5);margin-top:.04rem;}
 
-/* ── SUBJECT OVERVIEW GRID ── */
+/* ── STEP OVERVIEW ── */
 .nc-body{flex:1;padding:.7rem 1rem;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
-.nc-subj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;}
-.nc-subj-item{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:.5rem .6rem;display:flex;align-items:center;gap:.45rem;}
-.nc-subj-icon{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
-.nc-subj-icon svg{width:16px;height:16px;}
-.nc-subj-code{font-family:'Sora',sans-serif;font-weight:700;font-size:.58rem;color:var(--gold2);}
-.nc-subj-name{font-weight:600;font-size:.7rem;color:var(--text);line-height:1.3;margin-top:.03rem;}
+.nc-step-list{display:flex;flex-direction:column;gap:.38rem;}
+.nc-step-item{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:.45rem .7rem;display:flex;align-items:center;gap:.55rem;}
+.nc-step-badge{min-width:52px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:.58rem;color:#fff;flex-shrink:0;}
+.nc-step-info{flex:1;}
+.nc-step-title{font-weight:700;font-size:.72rem;color:var(--text);line-height:1.2;}
+.nc-step-days{font-size:.6rem;color:var(--faint);margin-top:.04rem;}
+.nc-step-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 
 /* ── DETAIL CARD ── */
 .nc-det-hdr{padding:.9rem 1rem;display:flex;align-items:center;gap:.7rem;flex-shrink:0;}
@@ -98,6 +103,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nc-feat-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;}
 .nc-feat-icon svg{width:18px;height:18px;}
 .nc-feat-label{font-size:.62rem;font-weight:700;color:var(--navy);line-height:1.25;}
+
+/* ── ACHIEVEMENT CARD ── */
+.nc-achieve-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.nc-achieve-item{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:12px;padding:.7rem .7rem;display:flex;align-items:flex-start;gap:.45rem;}
+.nc-achieve-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+.nc-achieve-icon svg{width:16px;height:16px;}
+.nc-achieve-title{font-family:'Sora',sans-serif;font-weight:800;color:#fff;font-size:.7rem;line-height:1.25;}
+.nc-achieve-sub{font-size:.6rem;color:rgba(255,255,255,.5);margin-top:.06rem;}
 
 /* ── DOTS ── */
 .nc-dots{display:flex;justify-content:center;gap:.32rem;padding:.55rem 0 .2rem;}
@@ -223,76 +236,79 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <canvas id="confettiCanvas"></canvas>
 
 <!-- NAV -->
-<!-- Replace this section in your NAV: -->
 <nav class="top-nav">
   <img src="../../images/cbdlogo.png" alt="College Buddy" class="nav-logo"
        onerror="this.outerHTML='<span style=\'font-family:Sora,sans-serif;font-weight:800;color:#1b3a5c;font-size:.95rem\'>College<span style=\'color:#f5a623\'>Buddy</span></span>'"/>
-  <span class="nav-badge">Special 26</span>
+  <span class="nav-badge">Sem 6 · Final</span>
   <div class="nav-spacer"></div>
-  
-  <!-- ADD THIS NEW BUTTON -->
   <button class="nav-share" onclick="shareOnWhatsApp()" title="Share on WhatsApp">
-     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.522 5.857L.058 23.5l5.818-1.525A11.939 11.939 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 0 1-5.012-1.369l-.358-.213-3.724.976.994-3.63-.234-.373A9.79 9.79 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.522 5.857L.058 23.5l5.818-1.525A11.939 11.939 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 0 1-5.012-1.369l-.358-.213-3.724.976.994-3.63-.234-.373A9.79 9.79 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
   </button>
-  
   <button class="nav-cta" onclick="scrollToForm()">Enroll Now →</button>
 </nav>
+
+<!-- DAYS BANNER -->
+<div class="days-banner">
+  <span class="days-banner-text">🚀 Launch your career in just</span>
+  <span class="days-pill">40 Days</span>
+  <span class="days-banner-text">with real projects!</span>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
     <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    BCA Semester 4 · Bihar Universities
+    BCA Semester 6 · Final Semester · Bihar Universities
   </div>
-  <h1 class="hero-title">Special <em>26</em></h1>
-  <p class="hero-sub">Master your 4th semester with expert-led classes, weekly quizzes, and full study support.</p>
+  <h1 class="hero-title">Project in <em>40 Days</em></h1>
+  <p class="hero-sub">Build a real project, get it live, create your resume & land your first internship or job — all in 40 days.</p>
   <div class="hero-tags">
-    <span class="hero-tag">Live Classes</span>
-    <span class="hero-tag">Recorded Sessions</span>
-    <span class="hero-tag">Study Notes</span>
-    <span class="hero-tag">Weekly Quizzes</span>
-    <span class="hero-tag">AI Chat Support</span>
-    <span class="hero-tag">Doubt Clearing</span>
+    <span class="hero-tag">Real Project</span>
+    <span class="hero-tag">Live Deployment</span>
+    <span class="hero-tag">Resume Building</span>
+    <span class="hero-tag">English Communication</span>
+    <span class="hero-tag">Interview Prep</span>
+    <span class="hero-tag">GitHub Profile</span>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════
-     SUBJECTS CAROUSEL
+     PROGRAM CAROUSEL
 ════════════════════════════════════════ -->
 <div class="section">
-  <div class="sec-label">Subjects Covered</div>
+  <div class="sec-label">Path to Success</div>
   <div class="nc-wrap">
-    <button class="nc-arrow prev" id="subjectPrev" onclick="nc_slide('subject',-1)" aria-label="Previous">
+    <button class="nc-arrow prev" id="programPrev" onclick="nc_slide('program',-1)" aria-label="Previous">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
-    <div class="nc-viewport" id="subjectViewport">
-      <div class="nc-track" id="subjectTrack"></div>
+    <div class="nc-viewport" id="programViewport">
+      <div class="nc-track" id="programTrack"></div>
     </div>
-    <button class="nc-arrow next" id="subjectNext" onclick="nc_slide('subject',1)" aria-label="Next">
+    <button class="nc-arrow next" id="programNext" onclick="nc_slide('program',1)" aria-label="Next">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
-    <div class="nc-dots" id="subjectDots"></div>
+    <div class="nc-dots" id="programDots"></div>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════
-     FEATURES CAROUSEL
+     WHAT YOU ACHIEVE CAROUSEL
 ════════════════════════════════════════ -->
 <div class="section">
-  <div class="sec-label">Batch Features</div>
+  <div class="sec-label">What You Get</div>
   <div class="nc-wrap">
-    <button class="nc-arrow prev" id="featurePrev" onclick="nc_slide('feature',-1)" aria-label="Previous">
+    <button class="nc-arrow prev" id="achievePrev" onclick="nc_slide('achieve',-1)" aria-label="Previous">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
-    <div class="nc-viewport" id="featureViewport">
-      <div class="nc-track" id="featureTrack"></div>
+    <div class="nc-viewport" id="achieveViewport">
+      <div class="nc-track" id="achieveTrack"></div>
     </div>
-    <button class="nc-arrow next" id="featureNext" onclick="nc_slide('feature',1)" aria-label="Next">
+    <button class="nc-arrow next" id="achieveNext" onclick="nc_slide('achieve',1)" aria-label="Next">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
-    <div class="nc-dots" id="featureDots"></div>
+    <div class="nc-dots" id="achieveDots"></div>
   </div>
 </div>
 
@@ -338,13 +354,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <div class="price-amount" id="priceDisplay">₹5,999</div>
         <div class="price-original hidden" id="priceOriginal">₹5,999</div>
       </div>
-      <div class="price-badge hidden" id="priceBadge">₹3,000 OFF</div>
+      <div class="price-badge hidden" id="priceBadge">₹4,000 OFF</div>
     </div>
     <button class="btn-enroll" id="btnEnroll" onclick="handleEnroll()">
       <div class="spin" id="enrollSpin"></div>
-      <span id="enrollTxt">
-        Enroll Now
-      </span>
+      <span id="enrollTxt">Enroll Now</span>
     </button>
   </div>
 </div>
@@ -364,21 +378,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </button>
     <div>
       <div class="pay-header-title">Complete Payment</div>
-      <div class="pay-header-sub">Special 26 · BCA Semester 2</div>
+      <div class="pay-header-sub">Project in 40 Days · BCA Semester 6</div>
     </div>
   </div>
   <div class="pay-amount-bar">
     <div>
       <div class="pay-amt-label">Amount to Pay</div>
       <div class="pay-amt-value" id="payAmtValue">₹5,999</div>
-      <div class="pay-amt-course">BCA Semester 2 · Special 26</div>
+      <div class="pay-amt-course">BCA Semester 6 · Project in 40 Days</div>
     </div>
   </div>
   <div class="pay-timer-wrap" id="payTimerWrap">
     <div class="pay-timer-icon">⏱️</div>
     <div>
       <div class="pay-timer-label">COMPLETE PAYMENT WITHIN</div>
-      <div class="pay-timer-value" id="payTimerDisplay">15:00</div>
+      <div class="pay-timer-value" id="payTimerDisplay">05:00</div>
     </div>
   </div>
   <div class="pay-tabs">
@@ -450,162 +464,118 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 //  CONFIG
 // ════════════════════════════════════════
 const PRICE_FULL   = 5999;
-const PRICE_COUPON = 2999;
+const PRICE_COUPON = 1999;
 const SUPPORT_WA   = '919801907094';
 const TIMER_MINS   = 5;
+
+// PROJECT_URL: Replace with your deployed GAS Web App URL for sem6
+const PROJECT_URL = 'https://script.google.com/macros/s/AKfycbwp_9XnUmLK-ynRd5gPw6Td0DkiLoSvqiU9yK_K1LWXZ514IOHHP5OGMewPipYkZpR5/exec';
+// typeof ENROLLMENT_URL_4 !== 'undefined'   ? ENROLLMENT_URL_4   : 'REPLACE_WITH_SEM6_GAS_URL';
 
 // ════════════════════════════════════════
 //  SVG ICON LIBRARY
 // ════════════════════════════════════════
 const IC = {
-  books:        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="12" y1="6" x2="16" y2="6"/><line x1="12" y1="10" x2="16" y2="10"/></svg>`,
-  math:         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>`,
-  cpu:          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v4M12 3v4M15 3v4M9 17v4M12 17v4M15 17v4M3 9h4M3 12h4M3 15h4M17 9h4M17 12h4M17 15h4"/></svg>`,
-  network:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
-  flowchart:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M12 6v3"/><path d="M8 12.5l4-3.5 4 3.5"/><path d="M12 9v3"/><rect x="8" y="18" width="8" height="4" rx="1"/><path d="M12 15v3"/></svg>`,
-  grid:         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
-  terminal:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>`,
-  star:         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
-  video:        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
-  playCircle:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>`,
-  clipboard:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2h-2"/><rect x="9" y="1" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg>`,
-  bookOpen:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>`,
-  search:       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
-  zap:          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-  code:         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-  message:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`,
-  pen:          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
-  checkSquare:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`,
-  bot:          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="15" x2="8.01" y2="15"/><line x1="16" y1="15" x2="16.01" y2="15"/></svg>`,
+  rocket:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M15 12v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`,
+  code:       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  globe:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+  fileText:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+  message:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`,
+  star:       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  book:       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>`,
+  github:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>`,
+  linkedin:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+  award:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
+  briefcase:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>`,
+  zap:        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  users:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>`,
+  check:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
 };
 
 // ════════════════════════════════════════
-//  DATA — Subjects (7 slides)
+//  DATA — Program Steps (7 slides)
 // ════════════════════════════════════════
-const SUBJECT_SLIDES = [
+const PROGRAM_SLIDES = [
   {
-    type: 'overview',
-    title: '6 Core Subjects',
-    sub: 'BCA Semester 2 · Complete Syllabus',
-    icon: 'books',
+    type: 'step-overview',
+    title: '5 Steps · 40 Days',
+    sub: 'From basics to job-ready in 40 days',
+    icon: 'rocket',
     items: [
-      { code:'BCA-401', name:'Java Programming',      icon:'math',      color:'#3b82f6' },
-      { code:'BCA-402', name:'Computer Graphics',     icon:'cpu',       color:'#8b5cf6' },
-      { code:'BCA-403', name:'Operating System',       icon:'network',   color:'#52a823' },
-      { code:'BCA-404', name:'Software Engineering',  icon:'flowchart', color:'#f59e0b' },
-      { code:'BCA-405', name:'Lab: Java',            icon:'grid',      color:'#ef4444' },
-      { code:'BCA-406', name:'Lab: Graphics & Linux',      icon:'terminal',  color:'#06b6d4' },
-    ] 
+      { step:'Step 1', days:'4 Days',  title:'Kuchh Basics Padhenge',           color:'#3b82f6' },
+      { step:'Step 2', days:'16 Days', title:'Ek Real Project Banayenge',        color:'#52a823' },
+      { step:'Step 3', days:'5 Days',  title:'Usko Live Karenge',                color:'#f59e0b' },
+      { step:'Step 4', days:'2 Days',  title:'Resume Banayenge',                 color:'#ef4444' },
+      { step:'Step 5', days:'13 Days', title:'Communication & English',          color:'#8b5cf6' },
+    ]
   },
   {
-    type: 'detail', code:'BCA-401', icon:'math', color:'#3b82f6',
-    title:'Java Programming', sub:'OOP · Collections · Exception Handling',
-    points:['Introduction to Java','Variables, Data Types & Operators','Control Flow Statements','Methods & Overloading','Classes, Objects & Inheritance']
+    type: 'detail', icon:'book', color:'#3b82f6',
+    title:'Step 1 · Basics Padhenge', sub:'4 Days — Foundation Building',
+    points:['HTML, CSS & JavaScript basics revision','Git & GitHub setup karo','Command line & VS Code setup','Problem solving mindset develop karo']
   },
   {
-    type: 'detail', code:'BCA-402', icon:'cpu', color:'#8b5cf6',
-    title:'Computer Graphics', sub:'Rendering & Animation',
-    points:['Introduction to Computer Graphics','2D & 3D Transformations','Clipping & Scan Conversion','Hidden Surface Removal','Rendering Techniques']
+    type: 'detail', icon:'code', color:'#52a823',
+    title:'Step 2 · Real Project Banao', sub:'16 Days — Hands-on Development',
+    points:['Full stack project idea finalize karenge','Frontend (HTML/CSS/JS or React) build karenge','Backend (Node.js or simple API) integrate karenge','Database connect karenge (Firebase / MongoDB)','Project documentation & README likhenge']
   },
   {
-    type: 'detail', code:'BCA-403', icon:'network', color:'#52a823',
-    title:'Operating System', sub:'Processes · Threads · Memory Management',
-    points:['Introduction to Operating Systems','Process Management','Thread Synchronization','Memory Management','File Systems']
+    type: 'detail', icon:'globe', color:'#f59e0b',
+    title:'Step 3 · Project Live Karo', sub:'5 Days — Deployment & Fixes',
+    points:['GitHub Pages / Netlify / Vercel par deploy karenge','Custom domain setup (optional)','Bugs fix karenge & UI polish karenge','Project share karene ke liye link ready karenge','Portfolio website par add karenge']
   },
   {
-    type: 'detail', code:'BCA-404', icon:'flowchart', color:'#f59e0b',
-    title:'Software Engineering', sub:'SDLC · DFD · Modelling',
-    points:['Systems Concepts & Development Life Cycle','Requirement Analysis & SRS Document','DFD, ER Diagrams & Process Modelling','System Design — Input, Output, Files','Software Testing & Maintenance']
+    type: 'detail', icon:'fileText', color:'#ef4444',
+    title:'Step 4 · Resume Banao', sub:'2 Days — Professional Profile',
+    points:['ATS-friendly resume template fill karenge','Skills, projects & experience section likhenge','LinkedIn profile optimize karenge','GitHub profile & README improve karenge','1-page resume final PDF download karenge']
   },
   {
-    type: 'detail', code:'BCA-405', icon:'grid', color:'#ef4444',
-    title:'Lab: Java', sub:'Develop Everything in Java',
-    points:['Data Types, Operators & Basics','If Else, Loops, Jump Statements','Classes, Method & Modifiers','Constructor, Inheritance & Polymorphism','Exception Handling & Collections']
+    type: 'detail', icon:'message', color:'#8b5cf6',
+    title:'Step 5 · Communication', sub:'13 Days — Interview Prep',
+    points:['Spoken English practice daily (30 min)','HR interview Q&A mock sessions','Technical interview common questions solve karenge','Email writing & professional communication','Final mock interview with feedback']
   },
   {
-    type: 'detail', code:'BCA-406', icon:'terminal', color:'#06b6d4',
-    title:'Lab: Linux & Graphics', sub:'Hands-on Coding in C',
-    points:['Linux Command Line Basics ','All Imporant Commands','Graphics Algorithms','Graphics Programming','Kali Linux & Ethical Hacking Basics']
+    type: 'detail', icon:'briefcase', color:'#0f172a',
+    title:'Requirements', sub:'Kya chahiye aapko?',
+    points:['1 Laptop (any OS — Windows, Mac, Linux)','4 Hours daily commitment required','Stable internet connection (classes are online)','Dedication & eagerness to learn is enough!','No prior coding experience needed for basics track']
   },
 ];
 
 // ════════════════════════════════════════
-//  DATA — Features (12 slides)
+//  DATA — What You Achieve (4 slides)
 // ════════════════════════════════════════
-const FEATURE_SLIDES = [
+const ACHIEVE_SLIDES = [
   {
-    type: 'feat-overview',
-    title: 'Everything You Need',
-    sub: 'Complete learning support system',
-    icon: 'star',
+    type: 'achieve-overview',
+    title: 'What You Will Achieve',
+    sub: 'Tangible outcomes after 40 days',
+    icon: 'award',
     items: [
-      { icon:'video',       label:'Live Classes',    color:'#ef4444' },
-      { icon:'playCircle',  label:'Recordings',      color:'#8b5cf6' },
-      { icon:'clipboard',   label:'Assignments',     color:'#f59e0b' },
-      { icon:'bookOpen',    label:'Ebook Notes',     color:'#3b82f6' },
-      { icon:'search',      label:'PYQs',            color:'#06b6d4' },
-      { icon:'zap',         label:'Guess Papers',    color:'#52a823' },
-      { icon:'code',        label:'Coding Labs',     color:'#0f172a' },
-      { icon:'message',     label:'Discussion',      color:'#d97706' },
-      { icon:'pen',         label:'Answer Writing',  color:'#be185d' },
-      { icon:'checkSquare', label:'Weekly Quizzes',  color:'#1d4ed8' },
-      { icon:'bot',         label:'AI Buddy',        color:'#7c3aed' },
+      { icon:'code',      label:'Live Project',        color:'#52a823' },
+      { icon:'github',    label:'GitHub Profile',      color:'#0f172a' },
+      { icon:'linkedin',  label:'LinkedIn Ready',      color:'#0077b5' },
+      { icon:'fileText',  label:'Professional Resume', color:'#ef4444' },
+      { icon:'message',   label:'Better English',      color:'#8b5cf6' },
+      { icon:'briefcase', label:'Internship Ready',    color:'#f59e0b' },
+      { icon:'award',     label:'College Project',     color:'#3b82f6' },
+      { icon:'users',     label:'Alumni Network',      color:'#06b6d4' },
+      { icon:'zap',       label:'Interview Skills',    color:'#d97706' },
     ]
   },
   {
-    type: 'detail', icon:'video', color:'#ef4444',
-    title:'Live Classes', sub:'Daily 2-hour interactive sessions',
-    points:['Daily live sessions on Google Meet (2 hrs)','Expert teachers from top Bihar colleges','Real-time doubt clearing during class','Attendance tracking on your dashboard','Missed class? Recording available in 2 hrs']
+    type: 'detail', icon:'code', color:'#52a823',
+    title:'Live Working Project', sub:'Real product, not just homework',
+    points:['A fully functional web project built by you','Deployed live — accessible by anyone on the internet','Source code on GitHub with proper commits','Project added to your portfolio & resume','Something to show in every job/internship interview']
   },
   {
-    type: 'detail', icon:'playCircle', color:'#8b5cf6',
-    title:'Recorded Sessions', sub:'Watch anytime, anywhere',
-    points:['All live sessions auto-saved & organised','Stream on mobile, tablet, or desktop','Speed control — 0.75× to 2× playback','Chapter-wise timestamps for quick revision','Access valid for entire semester duration']
+    type: 'detail', icon:'fileText', color:'#ef4444',
+    title:'Job-Ready Profile', sub:'Stand out from the crowd',
+    points:['1-page ATS-optimized resume ready','LinkedIn profile with 100+ connections guidance','GitHub profile with pinned projects & green squares','Introduction to internship platforms (Internshala, etc.)','Cover letter template for applications']
   },
   {
-    type: 'detail', icon:'clipboard', color:'#f59e0b',
-    title:'Assignments & Homework', sub:'Practice makes perfect',
-    points:['Weekly subject-wise assignments','Detailed model answers provided','Homework corrections with feedback','Practice sets for each chapter','Submit online via College Buddy portal']
-  },
-  {
-    type: 'detail', icon:'bookOpen', color:'#3b82f6',
-    title:'Ebook Notes', sub:'Structured PDFs for every chapter',
-    points:['Chapter-wise PDF notes for all 6 subjects','Formula sheets & important definitions','Short notes for last-minute revision','Diagrams, flowcharts & tables included','Always updated to match exam pattern']
-  },
-  {
-    type: 'detail', icon:'search', color:'#06b6d4',
-    title:'Previous Year Questions', sub:'Exam-pattern mastery',
-    points:['PYQs from last 5+ years solved','Subject-wise organised question banks','Trend analysis — most repeated topics','Model answers for descriptive questions','Unit-wise important questions highlighted']
-  },
-  {
-    type: 'detail', icon:'zap', color:'#52a823',
-    title:'Guess Papers', sub:'Smart exam preparation',
-    points:['Expert-curated guess questions per subject','High-probability topics highlighted','Full-length practice paper sets','Section-wise marks-based preparation','Released 2 weeks before exam season']
-  },
-  {
-    type: 'detail', icon:'code', color:'#0f172a',
-    title:'Coding Practicals', sub:'Hands-on lab programs',
-    points:['Complete lab programs for BCA-205 & 206','Step-by-step code explanation in Hindi','MS Office practical demo recordings','All DSA programs in C with output','Mini project guidance & documentation']
-  },
-  {
-    type: 'detail', icon:'message', color:'#d97706',
-    title:'Discussion Forum', sub:'Learn together, grow together',
-    points:['Dedicated WhatsApp study group','Peer-to-peer doubt solving community','Daily topic discussions in English & Hindi','Teacher moderated — accurate answers only','Active community of 500+ students']
-  },
-  {
-    type: 'detail', icon:'pen', color:'#be185d',
-    title:'Answer Writing', sub:'Score higher in theory exams',
-    points:['Structured answer formats for each subject','Model long & short answers provided','Tips for presentation & diagram drawing','Time management for theory paper','Evaluated answers with improvement notes']
-  },
-  {
-    type: 'detail', icon:'checkSquare', color:'#1d4ed8',
-    title:'Weekly Quizzes', sub:'Test your progress every week',
-    points:['Subject-wise MCQ quiz every week','Instant result with detailed explanations','Leaderboard — compete with batchmates','Wrong answer analysis to fix weak areas','Quiz history & progress tracking dashboard']
-  },
-  {
-    type: 'detail', icon:'bot', color:'#7c3aed',
-    title:'AI Buddy', sub:'Your 24/7 study companion',
-    points:['Ask any subject doubt — instant AI reply','Explains concepts in Hindi & English','Solves problems step-by-step with examples','Available 24×7 — even at midnight!','Powered by advanced AI trained on BCA syllabus']
+    type: 'detail', icon:'message', color:'#8b5cf6',
+    title:'Communication Skills', sub:'Speak with confidence',
+    points:['Daily 30-min spoken English practice sessions','Common HR & technical interview questions covered','Mock interview sessions with real feedback','Professional email & Slack/messaging etiquette','Confidence building — aap ready honge kisi bhi interview ke liye']
   },
 ];
 
@@ -620,8 +590,8 @@ let state = {
 };
 
 const nc_state = {
-  subject:{ cur:0, total:0, auto:null },
-  feature:{ cur:0, total:0, auto:null },
+  program:{ cur:0, total:0, auto:null },
+  achieve:{ cur:0, total:0, auto:null },
 };
 
 let payTimerInterval = null;
@@ -637,8 +607,8 @@ let paySecondsLeft   = TIMER_MINS * 60;
   if (p.get('mobile')) { document.getElementById('fPhone').value  = p.get('mobile'); state.phone = p.get('mobile'); }
   if (p.get('ref'))    { document.getElementById('fCoupon').value = p.get('ref').toUpperCase(); state.ref = p.get('ref'); }
 
-  nc_init('subject', SUBJECT_SLIDES);
-  nc_init('feature', FEATURE_SLIDES);
+  nc_init('program', PROGRAM_SLIDES);
+  nc_init('achieve', ACHIEVE_SLIDES);
   updateEnrollBtn();
 })();
 
@@ -650,7 +620,6 @@ function nc_init(name, slides) {
   const dots  = document.getElementById(name + 'Dots');
   track.innerHTML = '';
   dots.innerHTML  = '';
-
   nc_state[name].total = slides.length;
 
   slides.forEach((slide, i) => {
@@ -669,22 +638,16 @@ function nc_init(name, slides) {
   nc_arrows(name);
   nc_autostart(name);
 
-  // Touch / swipe support
   const vp = document.getElementById(name + 'Viewport');
   let sx = 0, sy = 0;
   vp.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive:true });
   vp.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - sx;
     const dy = e.changedTouches[0].clientY - sy;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 38) {
-      nc_slide(name, dx < 0 ? 1 : -1);
-    }
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 38) nc_slide(name, dx < 0 ? 1 : -1);
   }, { passive:true });
 }
 
-// ════════════════════════════════════════
-//  CAROUSEL — NAVIGATE
-// ════════════════════════════════════════
 function nc_goto(name, idx) {
   const s = nc_state[name];
   s.cur = idx;
@@ -702,7 +665,7 @@ function nc_slide(name, dir) {
 }
 
 function nc_arrows(name) {
-  const s = nc_state[name];
+  const s    = nc_state[name];
   const prev = document.getElementById(name + 'Prev');
   const next = document.getElementById(name + 'Next');
   if (prev) prev.disabled = s.cur === 0;
@@ -724,7 +687,7 @@ function nc_autoreset(name) {
 //  CAROUSEL — BUILD CARD HTML
 // ════════════════════════════════════════
 function nc_buildCard(d) {
-  if (d.type === 'overview') {
+  if (d.type === 'step-overview') {
     return `
       <div class="nc">
         <div class="nc-hdr">
@@ -735,21 +698,22 @@ function nc_buildCard(d) {
           </div>
         </div>
         <div class="nc-body">
-          <div class="nc-subj-grid">
+          <div class="nc-step-list">
             ${d.items.map(it => `
-              <div class="nc-subj-item">
-                <div class="nc-subj-icon" style="color:${it.color};background:${it.color}1a">${IC[it.icon]}</div>
-                <div>
-                  <div class="nc-subj-code">${it.code}</div>
-                  <div class="nc-subj-name">${it.name}</div>
+              <div class="nc-step-item">
+                <div class="nc-step-badge" style="background:${it.color}">${it.step}</div>
+                <div class="nc-step-info">
+                  <div class="nc-step-title">${it.title}</div>
+                  <div class="nc-step-days">⏱ ${it.days}</div>
                 </div>
+                <div class="nc-step-dot" style="background:${it.color}"></div>
               </div>`).join('')}
           </div>
         </div>
       </div>`;
   }
 
-  if (d.type === 'feat-overview') {
+  if (d.type === 'achieve-overview') {
     return `
       <div class="nc">
         <div class="nc-hdr">
@@ -771,7 +735,7 @@ function nc_buildCard(d) {
       </div>`;
   }
 
-  // detail card (subjects & features)
+  // detail card
   return `
     <div class="nc">
       <div class="nc-det-hdr">
@@ -793,16 +757,15 @@ function nc_buildCard(d) {
     </div>`;
 }
 
+// ════════════════════════════════════════
+//  SHARE
+// ════════════════════════════════════════
 function shareOnWhatsApp() {
-  const referralCode = state.ref || 'SPECIAL26';
-  const message = `Hey! 👋 Check out College Buddy's \nSpecial 26 batch for BCA Semester 4th. \n\nExpert-led classes \nLive session \nComplete study support! \nNotes, PYQs & Guess \n\nJoin now: ${BASE_URL}/enroll/sem4/?ref=${referralCode}`;
-  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
-  window.open(whatsappURL, '_blank');
+  const referralCode = state.ref || 'PROJECT40';
+  const message = `Hey! 👋 Check out College Buddy's\nProject in 40 Days — BCA Sem 6 Final Batch!\n\n✅ Real Live Project\n✅ Resume + LinkedIn\n✅ Interview Prep\n✅ English Communication\n\nBuild your career before graduation ends!\n\nJoin now: ${BASE_URL}/enroll/sem6/?ref=${referralCode}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-// ════════════════════════════════════════
-//  SCROLL TO FORM
-// ════════════════════════════════════════
 function scrollToForm() {
   document.getElementById('enrollSection').scrollIntoView({ behavior:'smooth', block:'start' });
   setTimeout(() => document.getElementById('fName').focus(), 600);
@@ -822,7 +785,7 @@ async function applyCoupon() {
   btn.disabled=true; spin.style.display='block'; txt.style.display='none';
 
   try {
-    const res  = await fetch(ENROLLMENT_URL_4 + '?action=validateCoupon&code=' + enc(code));
+    const res  = await fetch(PROJECT_URL + '?action=validateCoupon&code=' + enc(code));
     const data = await res.json();
     if (data.status === 'valid') {
       state.coupon=code; state.couponValid=true;
@@ -857,9 +820,9 @@ async function handleEnroll() {
   const email = document.getElementById('fEmail').value.trim();
   const phone = document.getElementById('fPhone').value.trim();
   let ok = true;
-  if (!name)                                      { showErr('eName', 'Naam required hai.', true);            ok=false; } else clearErr('eName');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('eEmail','Valid email chahiye.',true);            ok=false; } else clearErr('eEmail');
-  if (!/^\d{10}$/.test(phone))                    { showErr('ePhone','Valid 10-digit number chahiye.',true); ok=false; } else clearErr('ePhone');
+  if (!name)                                      { showErr('eName','Naam required hai.',true);            ok=false; } else clearErr('eName');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('eEmail','Valid email chahiye.',true);          ok=false; } else clearErr('eEmail');
+  if (!/^\d{10}$/.test(phone))                    { showErr('ePhone','Valid 10-digit number chahiye.',true);ok=false; } else clearErr('ePhone');
   if (!ok) return;
 
   state.name=name; state.email=email; state.phone=phone;
@@ -893,7 +856,7 @@ function openPayment() {
   document.getElementById('qrAmtBadge').textContent  = 'Pay ₹' + fmt(amt);
   document.getElementById('upiAmtRow').textContent   = '₹' + fmt(amt);
   document.getElementById('upiStepAmt').textContent  = '₹' + fmt(amt);
-  document.getElementById('qrImage').src = amt <= PRICE_COUPON ? 'qr2999.png' : 'qr5999.png';
+  document.getElementById('qrImage').src = amt <= PRICE_COUPON ? 'qr1999.png' : 'qr5999.png';
   document.getElementById('paymentOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   startPayTimer();
@@ -942,7 +905,7 @@ function copyUPI() {
 
 function needHelp() {
   const u = state;
-  const msg = `Hi, I need help with payment for College Buddy Special 26 (BCA Sem 2).\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount: ₹${fmt(u.finalPrice)}\n\nPlease help me complete the payment.`;
+  const msg = `Hi, I need help with payment for College Buddy — Project in 40 Days (BCA Sem 6).\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount: ₹${fmt(u.finalPrice)}\n\nPlease help me complete the payment.`;
   if (state.phone) postBackend({ action:'updatePayment', mobile:state.phone, status:'Help Requested', method:'', notes:'User asked for help', timeSpent:getTimeSpent() }).catch(()=>{});
   window.open('https://wa.me/' + SUPPORT_WA + '?text=' + encodeURIComponent(msg), '_blank');
 }
@@ -951,7 +914,7 @@ function paymentCompleted() {
   const u = state;
   const method = document.getElementById('tabUPI').classList.contains('active') ? 'UPI Transfer' : 'QR Scan';
   const now    = new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'});
-  const msg = `Hi! I have completed the payment for College Buddy Special 26 (BCA Sem 2). Please activate my course.\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount Paid: ₹${fmt(u.finalPrice)}\nPayment Method: ${method}\nPaid on: ${now}\n\nKindly confirm and activate my access. Thank you!`;
+  const msg = `Hi! I have completed the payment for College Buddy — Project in 40 Days (BCA Sem 6). Please activate my course.\n\nName: ${u.name||'—'}\nMobile: ${u.phone||'—'}\nEmail: ${u.email||'—'}\nAmount Paid: ₹${fmt(u.finalPrice)}\nPayment Method: ${method}\nPaid on: ${now}\n\nKindly confirm and activate my access. Thank you!`;
   if (state.phone) postBackend({ action:'updatePayment', mobile:state.phone, status:'Completed', method, notes:'User confirmed payment', timeSpent:getTimeSpent() }).catch(()=>{});
   launchConfetti();
   window.open('https://wa.me/' + SUPPORT_WA + '?text=' + encodeURIComponent(msg), '_blank');
@@ -966,7 +929,6 @@ function launchConfetti() {
   canvas.style.display='block';
   canvas.width =window.innerWidth;
   canvas.height=window.innerHeight;
-
   const colors = ['#f5a623','#52a823','#1b3a5c','#ef4444','#ffffff','#ffd700','#3d8019'];
   const pieces = Array.from({length:140}, () => ({
     x:Math.random()*canvas.width, y:Math.random()*canvas.height-canvas.height,
@@ -976,7 +938,6 @@ function launchConfetti() {
     tiltSpeed:Math.random()*.1+.05, speed:Math.random()*3+2,
     shape:Math.random()>.5?'rect':'circle',
   }));
-
   let angle=0, frame=0;
   function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -1000,10 +961,7 @@ function launchConfetti() {
 //  BACKEND
 // ════════════════════════════════════════
 async function postBackend(body) {
-  const params = new URLSearchParams({
-    payload: JSON.stringify(body)
-  });
-  const res = await fetch(ENROLLMENT_URL_4 + '?' + params.toString());
+  const res = await fetch(PROJECT_URL, { method:'POST', body:JSON.stringify(body) });
   return res.json();
 }
 
@@ -1011,8 +969,7 @@ async function postBackend(body) {
 //  UTILS
 // ════════════════════════════════════════
 function updateEnrollBtn() {
-  document.getElementById('enrollTxt').innerHTML =
-    `Enroll Now`;
+  document.getElementById('enrollTxt').innerHTML = 'Enroll Now';
 }
 
 function setBtnLoad(loading) {
