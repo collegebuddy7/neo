@@ -1877,7 +1877,7 @@ function buildClassCard(c) {
   // Status button — only if done AND has classId AND has at least one link
   const hasContent = c.link || c.recording || c.notes || c.quizlink;
   const statusBtn  = isDone && hasContent && c.classId
-    ? `<button class="cc-status-btn" onclick="openModal('${esc(c.classId)}','${esc(c.title)}')">${ICO.pencil} Update Attendance</button>`
+    ? `<button class="cc-status-btn" onclick="openModal('${esc(c.classId)}','${esc(c.title)}')">${ICO.pencil} Attendance</button>`
     : '';
 
   el.innerHTML = `
