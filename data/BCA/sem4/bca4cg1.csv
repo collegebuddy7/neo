@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is computer graphics?,Study of sound,Study of generating and manipulating images using computers,Study of databases,Study of networks,2
+What does GUI stand for?,General User Interface,Graphical User Interface,Graphical Utility Input,General Utility Interface,2
+What is a pixel?,A type of software,The smallest unit of a digital image,A graphics card,A display standard,2
+What is resolution?,Number of colors in an image,Number of pixels in an image (width x height),Size of a monitor,Speed of rendering,2
+Which coordinate system is commonly used in 2D graphics?,Polar,Spherical,Cartesian,Cylindrical,3
+What is rendering?,Storing data,Converting a 3D model into a 2D image,Compressing files,Editing video,2
+What is a raster image?,An image made of mathematical curves,An image made of pixels arranged in a grid,A 3D model,A vector image,2
+What is a vector graphic?,An image made of pixels,An image defined by mathematical equations and paths,A scanned photo,A bitmap image,2
+What is RGB?,Red Green Blue color model,Resolution Graphics Bit,Raster Graphic Blur,Red Gamma Blue,1
+What is animation in graphics?,Static image display,A sequence of images displayed rapidly to create motion,Image compression,Color correction,2

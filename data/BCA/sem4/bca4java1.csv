@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is Java?,A markup language,An object-oriented programming language,A database,An operating system,2
+Which method is the entry point of a Java program?,start(),begin(),main(),run(),3
+What is the correct way to print in Java?,print("Hello"),echo("Hello"),System.out.println("Hello"),console.log("Hello"),3
+Which keyword is used to create a class in Java?,object,define,struct,class,4
+What is JVM?,Java Virtual Machine,Java Variable Method,Java Visual Manager,Java Version Model,1
+Which data type stores whole numbers in Java?,float,double,int,char,3
+What is the correct syntax for a single-line comment in Java?,<!-- comment -->,# comment,// comment,/* comment,3
+Which keyword is used to inherit a class in Java?,implements,inherits,extends,super,3
+What is an object in Java?,A primitive type,An instance of a class,A method,A variable,2
+Which loop is used when the number of iterations is known?,while,do-while,for,switch,3

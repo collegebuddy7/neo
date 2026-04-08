@@ -1000,7 +1000,10 @@ function launchConfetti() {
 //  BACKEND
 // ════════════════════════════════════════
 async function postBackend(body) {
-  const res = await fetch(ENROLLMENT_URL_4, { method:'POST', body:JSON.stringify(body) });
+  const params = new URLSearchParams({
+    payload: JSON.stringify(body)
+  });
+  const res = await fetch(ENROLLMENT_URL_4 + '?' + params.toString());
   return res.json();
 }
 

@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is a data structure?,A programming language,A way to organize and store data,A type of variable,An operating system,2
+Which of the following is a primitive data type?,Array,Stack,Integer,Queue,3
+What is an array?,A function,A collection of elements of the same type,A decision statement,A loop,2
+Which data type stores true or false values?,Integer,Float,Boolean,String,3
+What is a string?,A collection of characters,A whole number,A decimal number,A logical value,1
+Which of the following is a linear data structure?,Tree,Graph,Stack,Heap,3
+What is a variable?,A fixed value,A named storage location for data,A loop,A function,2
+Which data type is used to store decimal numbers?,Integer,Boolean,Float,Char,3
+What is a record/struct?,A single value,A collection of different data types grouped together,A loop,A condition,2
+Which of the following stores a single character?,String,Integer,Char,Float,3

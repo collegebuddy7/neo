@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What does HTML stand for?,Hyper Transfer Markup Language,HyperText Markup Language,High Text Machine Language,HyperText Machine Language,2
+Which tag is used for the largest heading in HTML?,<h6>,<head>,<h1>,<header>,3
+Which HTML tag is used to create a hyperlink?,<link>,<a>,<href>,<url>,2
+What tag is used to insert an image in HTML?,<img>,<image>,<picture>,<src>,1
+Which tag creates an unordered list?,<ol>,<li>,<ul>,<list>,3
+What does the <br> tag do?,Bold text,Creates a line break,Creates a table row,Adds a border,2
+Which attribute is used to specify the URL in an anchor tag?,src,link,url,href,4
+What is the correct HTML tag for a paragraph?,<p>,<para>,<pg>,<text>,1
+Which tag is used to create a table in HTML?,<tab>,<tr>,<td>,<table>,4
+What tag is used for bold text in HTML?,<i>,<b>,<u>,<s>,2

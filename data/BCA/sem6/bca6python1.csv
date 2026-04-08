@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is Python?,A hardware device,A high-level programming language,A database system,An operating system,2
+Which function is used to display output in Python?,print(),display(),echo(),output(),1
+Which symbol is used for single-line comments in Python?,//,--,#,/*,3
+How do you create a variable in Python?,var x = 5,int x = 5,x = 5,declare x = 5,3
+Which keyword is used to define a function in Python?,function,define,func,def,4
+What data type is the value 3.14 in Python?,int,str,float,bool,3
+What is the correct way to create a list in Python?,list = (1,2,3),list = {1,2,3},list = [1,2,3],list = <1,2,3>,3
+Which operator is used for exponentiation in Python?,^,**,^^,exp(),2
+What does the len() function do?,Returns the largest value,Returns the number of items in an object,Converts to lowercase,Rounds a number,2
+Which keyword is used for a conditional statement in Python?,when,if,check,case,2

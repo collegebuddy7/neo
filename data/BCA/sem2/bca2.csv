@@ -1,3 +1,0 @@
-Question,OptionA,OptionB,OptionC,OptionD,CorrectOption
-What is a pointer in C?,A variable that stores memory address,A data type,A loop construct,A function name,1
-What does malloc() return?,A void pointer,An integer,A float,A char,1
