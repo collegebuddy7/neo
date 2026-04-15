@@ -1,0 +1,16 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is a data structure?,A programming language,A way to store data,A collection of data organized efficiently,A compiler,3
+Which operation is performed using data structures?,Cooking,Searching and sorting,Drawing,Printing,2
+Which of the following is a linear data structure?,Tree,Graph,Array,Network,3
+Which of the following is NOT a linear data structure?,Stack,Queue,Tree,Array,3
+How are elements arranged in a linear data structure?,Randomly,Hierarchically,Sequentially,Circularly,3
+Which data structure uses contiguous memory?,Linked List,Array,Tree,Graph,2
+What does a linked list consist of?,Arrays,Nodes,Functions,Classes,2
+What does each node in a linked list contain?,Only data,Only pointer,Data and reference,Only index,3
+Which data structure follows LIFO?,Queue,Stack,Array,Graph,2
+Which data structure follows FIFO?,Stack,Tree,Queue,Graph,3
+In a stack, where are elements inserted and removed?,Bottom,Middle,Top,Anywhere,3
+In a queue, where are elements removed from?,Rear,Top,Middle,Front,4
+Which of the following is a non-linear data structure?,Array,Linked List,Stack,Tree,4
+What is a tree data structure?,Sequential structure,Hierarchical structure,Linear list,Simple array,2
+What is a graph?,Collection of arrays,Collection of nodes and edges,Collection of stacks,Collection of queues,2

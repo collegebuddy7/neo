@@ -1,0 +1,16 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is Java?,A low-level language,An object-oriented programming language,A database,A hardware device,2
+Who developed Java?,Dennis Ritchie,James Gosling,Bjarne Stroustrup,Guido van Rossum,2
+What was the original name of Java?,JavaX,Oak,Coffee,SunLang,2
+In which year was Java officially released?,1991,1993,1995,2000,3
+What does WORA stand for?,Write Once Run Anywhere,Work Once Run Always,Write Only Run Anywhere,Write Once Read Anywhere,1
+Which company acquired Sun Microsystems?,Google,IBM,Oracle,Microsoft,3
+Which feature makes Java platform independent?,Compilation,Bytecode,Interpreter,Platform Independence,4
+Which of the following is NOT a Java feature?,Secure,Object-Oriented,Platform Dependent,Multithreading,3
+What manages memory automatically in Java?,Pointers,Stack,Garbage Collection,Heap only,3
+Which of these is a use of Java?,Web development,Mobile apps,Enterprise applications,All of the above,4
+What is the entry point of a Java program?,start(),main(),run(),init(),2
+What does System.out.println() do?,Takes input,Compiles code,Prints output,Ends program,3
+Java code is compiled into?,Machine code,Assembly code,Bytecode,Native code,3
+Which concept is used in Java to create objects?,Class,Object,Method,Variable,1
+Which of the following is NOT supported in Java?,Pointers,Classes,Objects,Interfaces,1
