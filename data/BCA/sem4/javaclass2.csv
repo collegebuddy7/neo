@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+Which command is used to compile a Java file?,java file.java,javac file.java,compile file.java,run file.java,2
+Which command is used to execute a Java program?,javac file.java,java file,run file.java,execute file,2
+What is the extension of a compiled Java file?,.java,.class,.exe,.js,2
+Which tool converts Java code into bytecode?,JVM,JRE,JDK Compiler,JIT,3
+What does JVM stand for?,Java Variable Machine,Java Virtual Machine,Java Verified Method,Java Visual Machine,2
+Which file contains bytecode?,.java,.class,.txt,.exe,2
+Which component executes bytecode?,Compiler,JVM,Editor,Debugger,2
+What is required to run a Java program?,Only JDK,Only JVM,JRE or JVM,None,3
+Which command compiles HelloWorld.java?,java HelloWorld.java,javac HelloWorld.java,run HelloWorld,execute HelloWorld,2
+What happens if compilation fails?,Program runs,Error is shown,File executes partially,Nothing happens,2

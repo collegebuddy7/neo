@@ -1,0 +1,11 @@
+Question,Option1,Option2,Option3,Option4,Answer
+What is the main purpose of a data structure?,To compile code,To store and organize data efficiently,To design UI,To execute programs,2
+Which operation is NOT typically associated with data structures?,Insertion,Deletion,Searching,Painting,4
+Which data structure allows direct access using index?,Linked List,Stack,Queue,Array,4
+Why are arrays efficient?,Dynamic size,Random access,No memory usage,Unlimited storage,2
+What connects nodes in a linked list?,Index,Pointer/Reference,Loop,Stack,2
+Which structure allows insertion and deletion from one end only?,Queue,Array,Stack,Linked List,3
+Which structure allows insertion at rear and deletion at front?,Stack,Queue,Tree,Graph,2
+Which data structure is best for hierarchical data?,Array,Stack,Tree,Queue,3
+Which structure represents relationships between entities?,Array,Graph,Stack,Queue,2
+Which traversal is more complex in non-linear structures?,Sequential traversal,Linear traversal,DFS/BFS traversal,Index traversal,3
